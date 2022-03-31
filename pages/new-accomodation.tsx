@@ -2,7 +2,7 @@ import AccomodationForm, { Values } from '../components/accomodation/accomodatio
 
 const NewAcc = () => {
   const addAccHandler = async (accData: Values) => {
-    const response = await fetch('/api/new-accomodation', {
+    const response = await fetch('/api/accomodation-handler', {
       method: 'POST',
       body: JSON.stringify(accData),
       headers: { 'Content-Type': 'application/json' }

@@ -1,18 +1,9 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import StickyFooter from '../components/layout/footer'
-import DenseAppBar from '../components/layout/header'
+import HomePage from '../components/home/home'
 
-const Home: NextPage = () => {
+export default function Main() {
   return (
     <>
-    <Head>
-      <title>Home</title>
-    </Head>
-      <DenseAppBar/>
-      <StickyFooter/>
+      <HomePage />
     </>
   )
 }
-
-export default Home

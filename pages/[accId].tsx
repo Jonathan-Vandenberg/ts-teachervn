@@ -35,7 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const accsCollection: mongoDB.Collection = db.collection('accomodation')
 
-  const accs = await accsCollection.find<ObjectId>({}, { _id: 1 }).toArray()
+  const accs = await accsCollection.find<ObjectIdLike>({}, { _id: 1 }).toArray()
 
   client.close()
 

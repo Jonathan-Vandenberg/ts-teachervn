@@ -9,11 +9,6 @@ import * as React from 'react';
 
 export interface Props {
   onSubmit: (values: Values) => void,
-  
-}
-
-export interface Submitted {
-  submitted: boolean
 }
 
 export type Values = {
@@ -22,7 +17,7 @@ export type Values = {
   price: string,
   address: string,
   duration: string,
-  notes: string,
+  notes?: string,
   image: string,
   id: string,
 }
