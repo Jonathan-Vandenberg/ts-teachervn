@@ -1,9 +1,8 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import image from "../../images/pexels-pixabay-271816.jpg";
 import classes from "./accomodation-hero.module.scss";
-import Values from "./accomodation-form";
 
 const AccomodationHero: React.FC = (props) => {
   return (

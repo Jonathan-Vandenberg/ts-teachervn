@@ -1,7 +1,7 @@
-import { Button, Card, Container, Typography, Grid } from "@material-ui/core";
+import { Button, Card, Container, Grid, Typography } from "@material-ui/core";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { Values } from "./accomodation-form";
-import Image from "next/image";
 
 const AccomodationSingle: React.FC<Values> = (props) => {
   const route = useRouter();

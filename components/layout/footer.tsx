@@ -28,7 +28,7 @@ export default function StickyFooter(): React.ReactElement {
         mt: "auto",
         backgroundColor: (theme) =>
           theme.palette.mode === "light"
-            ? theme.palette.grey[200]
+            ? theme.palette.grey[100]
             : theme.palette.grey[800],
       }}
     >

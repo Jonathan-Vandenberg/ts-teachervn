@@ -17,7 +17,7 @@ const Accomodation: React.FC<Values> = (props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AccomodationHero accs={props.accs} />
+      <AccomodationHero />
       <TitlebarImageList accs={props.accs} />
     </>
   );
