@@ -1,15 +1,15 @@
-import React from 'react'
-import StickyFooter from '../components/layout/footer'
-import DenseAppBar from '../components/layout/header'
+import React from "react";
+import StickyFooter from "../components/layout/footer";
+import ResponsiveAppBar from "../components/layout/header";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <DenseAppBar />
+      <ResponsiveAppBar />
       <Component {...pageProps} />
       <StickyFooter />
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

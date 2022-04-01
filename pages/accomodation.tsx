@@ -1,9 +1,10 @@
-import { MongoClient } from 'mongodb'
-import Head from 'next/head'
-import * as React from 'react'
-import { Values } from '../components/accomodation/accomodation-form'
-
-import AccList from '../components/accomodation/accomodation-list'
+import { ClassNames } from "@emotion/react";
+import { MongoClient } from "mongodb";
+import Head from "next/head";
+import * as React from "react";
+import { Values } from "../components/accomodation/accomodation-form";
+import AccomodationHero from "../components/accomodation/accomodation-hero";
+import TitlebarImageList from "../components/accomodation/accomodation-list";
 
 const Accomodation: React.FC<Values> = (props) => {
   return (
@@ -11,32 +12,31 @@ const Accomodation: React.FC<Values> = (props) => {
       <Head>
         <title>Accomodation</title>
         <meta
-          name='description'
-          content='Find accomodation for the duration of your contract.'
+          name="description"
+          content="Find accomodation for the duration of your contract."
         />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AccList accs={props.accs} />
+      <AccomodationHero accs={props.accs} />
+      <TitlebarImageList accs={props.accs} />
     </>
-  )
-}
+  );
+};
 
 export const getStaticProps = async () => {
-  const client = await MongoClient.connect(
-    `${process.env.ACCOMODATION_KEY}`,
-  )
+  const client = await MongoClient.connect(`${process.env.ACCOMODATION_KEY}`);
 
-  const db = client.db()
+  const db = client.db();
 
-  const accCollection = db.collection('accomodation')
+  const accCollection = db.collection("accomodation");
 
-  const accs = await accCollection.find().toArray()
+  const accs = await accCollection.find().toArray();
 
-  client.close()
+  client.close();
 
   return {
     props: {
-      accs: accs.map((acc) => ({
+      accs: accs.map<Values>((acc) => ({
         title: acc.title,
         address: acc.address,
         description: acc.description,
@@ -44,10 +44,10 @@ export const getStaticProps = async () => {
         price: acc.price,
         notes: acc.notes,
         id: acc._id.toString(),
-        image: acc.image
-      }))
-    }
-  }
-}
+        image: acc.image,
+      })),
+    },
+  };
+};
 
-export default Accomodation
+export default Accomodation;

@@ -1,13 +1,26 @@
-import { Button, Container } from '@material-ui/core'
-import { useRouter } from 'next/router'
-import * as React from 'react'
+import { Container, Typography } from "@material-ui/core";
+import Image from "next/image";
+import * as React from "react";
+import image from "../../images/pexels-max-fischer-5212342.jpg";
 
 const HomePage: React.FC = () => {
-  const router = useRouter()
+  return (
+    <Container
+      container
+      style={{ backgroundColor: "rgb(239, 252, 255)", marginTop: "7rem" }}
+      maxWidth
+    >
+      <Typography variant="h1" style={{ padding: "2rem" }}>
+        TeacherVN
+      </Typography>
 
-  return <Container>
-    <Button onClick={()=>{router.push('/new-accomodation')}}>Accomodation</Button>
-  </Container>
-}
+      <Typography variant="h4" style={{ padding: "2rem" }}>
+        Connecting teachers to classrooms
+      </Typography>
 
-export default HomePage
+      <Image src={image} alt="main-hero" style={{ width: "100%" }} />
+    </Container>
+  );
+};
+
+export default HomePage;
