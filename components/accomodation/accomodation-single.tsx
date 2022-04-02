@@ -2,6 +2,7 @@ import { Button, Card, Container, Grid, Typography } from "@material-ui/core";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Values } from "./accomodation-form";
+import classes from './accomodation-single.module.scss'
 
 const AccomodationSingle: React.FC<Values> = (props) => {
   const route = useRouter();
@@ -11,26 +12,24 @@ const AccomodationSingle: React.FC<Values> = (props) => {
   };
 
   return (
-    <Container>
-      <Card>
+    <Container className={classes.container}>
+      <Card className={classes.card}>
         <Grid
+        className={classes.grid}
           container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
+          
         >
-          <Typography>{props.title}</Typography>
+          <Typography className={classes.title}>{props.title}</Typography>
 
-          <Typography paragraph={true} style={{ padding: "2rem" }}>
+          <Typography className={classes.description} paragraph={true} style={{ padding: "2rem" }}>
             {props.description}
           </Typography>
 
-          <Typography>{props.price}</Typography>
+          <Typography className={classes.price}>{props.price}</Typography>
 
-          <Image src={props.image} alt={props.title} layout="fill" />
+          <Image className={classes.image} src={props.image} alt={props.title} layout="fill" />
 
-          <Button onClick={showDetailsHandler} variant="contained">
+          <Button className={classes.button} onClick={showDetailsHandler} variant="contained">
             Details
           </Button>
         </Grid>

@@ -6,6 +6,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import * as React from 'react';
 import { Values } from './accomodation-form';
+import classes from './accomodation-list.module.scss'
 
 const  TitlebarImageList: React.FC<Values> = (props) => {
   return (

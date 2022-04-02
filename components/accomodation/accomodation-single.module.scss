@@ -1,0 +1,16 @@
+.container{
+
+  .card{
+    .grid{
+      direction:"column";
+      align-items:"center";
+      justify-content:"center";
+
+      .image{
+        padding: 30px
+      }
+    }
+  }
+}
+      
+      
