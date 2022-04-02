@@ -71,11 +71,16 @@ const ResponsiveAppBar = () => {
   };
 
   const handleCloseUserMenu = (e: React.MouseEvent<HTMLElement>) => {
-    router.push(
-      "/" + e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase()
-    );
-    setAnchorElUser(null);
+    if(e.currentTarget.innerText === ''){
+      setAnchorElUser(null);
+    }else{
+      router.push(
+        "/" + e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase()
+      );
+      setAnchorElUser(null);
+    }
   };
+
 
   return (
     <AppBar position="fixed" className={classes.nav} id="navbar">
@@ -129,45 +134,32 @@ const ResponsiveAppBar = () => {
             <Button
               onClick={() => pageChangeHandler("/")}
               sx={{ my: 2, color: "white", display: "block" }}
-            >
-              <Typography style={{ fontSize: "0.8rem" }} noWrap>
-                Home
-              </Typography>
-            </Button>
+              style={{color: 'white'}}
+            >Home</Button>
 
             <Button
               onClick={() => pageChangeHandler("/schools")}
               sx={{ my: 2, color: "white", display: "block" }}
-            >
-              <Typography style={{ fontSize: "0.8rem" }} noWrap>
-                Schools
-              </Typography>
-            </Button>
+              style={{color: 'white'}}
+            >Schools</Button>
 
             <Button
               onClick={() => pageChangeHandler("/accomodation")}
               sx={{ my: 2, color: "white", display: "block" }}
-            >
-              <Typography style={{ fontSize: "0.8rem" }} variant="h6" noWrap>
-                Accomodation
-              </Typography>
-            </Button>
+              style={{color: 'white'}}
+            >Accomodation</Button>
 
             <Button
               onClick={() => pageChangeHandler("/volunteer")}
               sx={{ my: 2, color: "white", display: "block" }}
-            >
-              <Typography style={{ fontSize: "0.8rem" }} variant="h6" noWrap>
-                Volunteer
-              </Typography>
-            </Button>
+              style={{color: 'white'}}
+            >Volunteer</Button>
 
             <Button
               onClick={() => pageChangeHandler("/language-exchange")}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              {}
-            </Button>
+              sx={{ p:0 }}
+              style={{color: 'white'}}
+            >Language Exchange</Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

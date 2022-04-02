@@ -3,14 +3,12 @@ import StickyFooter from "../components/layout/footer";
 import ResponsiveAppBar from "../components/layout/header";
 import '../styles/globals.scss';
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <ResponsiveAppBar />
-      <Component {...pageProps} />
-      <StickyFooter />
-    </>
-  );
-}
+import type { AppProps } from 'next/app'
 
-export default MyApp;
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (<>
+      <ResponsiveAppBar />
+        <Component {...pageProps} />
+      <StickyFooter />
+    </>)
+}
