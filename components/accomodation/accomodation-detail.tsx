@@ -1,10 +1,10 @@
 import { Typography, Card, Container, Button } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Image from "next/image";
-import { Values } from "./school-form";
-import classes from "./school-detail.module.scss";
+import { Values } from "./accomodation-form";
+import classes from "./accomodation-detail.module.scss";
 
-const SchoolDetail: React.FC<Values> = (props) => {
+const AccomodationDetail: React.FC<Values> = (props) => {
   const mapSearch = () => {
     window.open(
       "https://www.google.com/maps/search/" +
@@ -55,8 +55,8 @@ const SchoolDetail: React.FC<Values> = (props) => {
           <p>{props.duration}</p>
         </li>
 
-        <li className={classes.pay}>
-          <p>{props.pay}</p>
+        <li className={classes.price}>
+          <p>{props.price}</p>
         </li>
 
         <li className={classes.notes}>
@@ -81,4 +81,23 @@ const SchoolDetail: React.FC<Values> = (props) => {
   );
 };
 
-export default SchoolDetail;
+export default AccomodationDetail;
+
+{
+  /* <Box className={classes.container}>
+      <Typography className={classes.title} variant="h5" component="h2">
+        {props.title}
+      </Typography>
+
+      <Typography className={classes.address} variant="h5" component="h2">
+        {props.address}
+      </Typography>
+
+      <Typography className={classes.price} variant="h5" component="h2">
+        {props.price}
+      </Typography>
+      <Container className={classes.imageContainer}>
+        <Image className={classes.image} src={props.image} alt={props.title} layout='fill' />
+      </Container>
+    </Box> */
+}

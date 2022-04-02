@@ -4,40 +4,25 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import classes from './footer.module.scss';
 
 export default function StickyFooter(): React.ReactElement {
   return (
     <Box
+    className={classes.container}
       component="footer"
       sx={{
-        py: 3,
-        px: 2,
+        py: 0,
+        px: 0,
         mt: "auto",
-        backgroundColor: (theme) =>
-          theme.palette.mode === "light"
-            ? theme.palette.grey[100]
-            : theme.palette.grey[800],
+        backgroundColor: "rgb(8,90,138)",
       }}
     >
       <CssBaseline />
       <Container maxWidth="sm">
-        <Typography variant="body1">
+        <Typography variant="body1" className={classes.name}>
           Website created by Jonathan van den Berg
         </Typography>
-        <Copyright />
       </Container>
     </Box>
   );

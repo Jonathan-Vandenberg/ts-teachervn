@@ -66,14 +66,10 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = (e: React.MouseEvent<HTMLElement>) => {
-    if(e.currentTarget.innerText === ''){
+  const handleCloseNavMenu = (e: React.MouseEvent<HTMLElement>) => {
+    if (e.currentTarget.innerText === "") {
       setAnchorElUser(null);
-    }else{
+    } else {
       router.push(
         "/" + e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase()
       );
@@ -81,6 +77,16 @@ const ResponsiveAppBar = () => {
     }
   };
 
+  const handleCloseUserMenu = (e: React.MouseEvent<HTMLElement>) => {
+    if (e.currentTarget.innerText === "") {
+      setAnchorElUser(null);
+    } else {
+      router.push(
+        "/" + e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase()
+      );
+      setAnchorElUser(null);
+    }
+  };
 
   return (
     <AppBar position="fixed" className={classes.nav} id="navbar">
@@ -134,32 +140,42 @@ const ResponsiveAppBar = () => {
             <Button
               onClick={() => pageChangeHandler("/")}
               sx={{ my: 2, color: "white", display: "block" }}
-              style={{color: 'white'}}
-            >Home</Button>
+              className={classes.button}
+            >
+              Home
+            </Button>
 
             <Button
               onClick={() => pageChangeHandler("/schools")}
-              sx={{ my: 2, color: "white", display: "block" }}
-              style={{color: 'white'}}
-            >Schools</Button>
+              sx={{ my: 2, display: "block" }}
+              className={classes.button}
+            >
+              Schools
+            </Button>
 
             <Button
               onClick={() => pageChangeHandler("/accomodation")}
-              sx={{ my: 2, color: "white", display: "block" }}
-              style={{color: 'white'}}
-            >Accomodation</Button>
+              sx={{ my: 2, display: "block" }}
+              className={classes.button}
+            >
+              Accomodation
+            </Button>
 
             <Button
               onClick={() => pageChangeHandler("/volunteer")}
-              sx={{ my: 2, color: "white", display: "block" }}
-              style={{color: 'white'}}
-            >Volunteer</Button>
+              sx={{ my: 2, display: "block" }}
+              className={classes.button}
+            >
+              Volunteer
+            </Button>
 
             <Button
               onClick={() => pageChangeHandler("/language-exchange")}
-              sx={{ p:0 }}
-              style={{color: 'white'}}
-            >Language Exchange</Button>
+              sx={{ p: 0 }}
+              className={classes.button}
+            >
+              Language Exchange
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -167,7 +183,7 @@ const ResponsiveAppBar = () => {
               <Button
                 onClick={handleOpenUserMenu}
                 sx={{ p: 0 }}
-                style={{ color: "white" }}
+                className={classes.button}
               >
                 Agents
               </Button>

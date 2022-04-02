@@ -3,6 +3,7 @@ import Button from "@material-ui/core/button";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { Form, Formik } from "formik";
 import * as React from "react";
@@ -26,6 +27,7 @@ export type Values = {
 const AccomodationForm: React.FC<Props> = ({ onSubmit }) => {
   return (
     <Container maxWidth="sm" className={classes.container}>
+      <Typography variant="h6">Create a new accomodation post</Typography>
       <Formik
         initialValues={{
           title: "",

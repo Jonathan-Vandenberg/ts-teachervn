@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb";
-import { Values } from "../../components/accomodation/accomodation-form";
+import { Values } from "../../components/school/school-form";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
@@ -12,10 +12,10 @@ export const handler = async (
 ) => {
   if (req.method === "POST") {
     const data = req.body;
-    const client = await MongoClient.connect(`${process.env.ACCOMODATION_KEY}`);
+    const client = await MongoClient.connect(`${process.env.SCHOOL_KEY}`);
     const db = client.db();
-    const accCollection = db.collection("accomodation");
-    const result = await accCollection.insertOne(data);
+    const schoolCollection = db.collection("schools");
+    const result = await schoolCollection.insertOne(data);
 
     client.close();
   }

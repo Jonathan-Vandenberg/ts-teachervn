@@ -1,17 +1,16 @@
-import AccomodationDetail from "../components/accomodation/accomodation.detail";
-import { MongoClient, ObjectId } from "mongodb";
-import { Values } from "../components/accomodation/accomodation-form";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import * as mongoDB from "mongodb";
-import React from "react";
-import { ObjectIdLike } from "bson";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+import * as mongoDB from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import React from "react";
+import { Values } from "../../components/accomodation/accomodation-form";
+import AccomodationDetail from "../../components/accomodation/accomodation-detail";
 
 interface AccProps {
   accData: Values;
 }
 
-const AccomodationDetailsPage: NextPage<AccProps> = (
+const AccomodationDetailsPage: React.FC<AccProps> = (
   props
 ): ReactJSXElement => {
   return (
@@ -38,9 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const accsCollection: mongoDB.Collection = db.collection("accomodation");
 
-  const accs = await accsCollection
-    .find<ObjectIdLike>({}, { _id: 1 })
-    .toArray();
+  const accs = await accsCollection.find({}, { _id: 1 }).toArray();
 
   client.close();
 
@@ -55,7 +52,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const accId = context?.params?.accId;
+  const accId = context.params?.accId;
+
+  const ObjectID = mongoDB.ObjectId;
+  const id: mongoDB.ObjectId = new ObjectID(accId);
 
   const client: mongoDB.MongoClient = await MongoClient.connect(
     `${process.env.ACCOMODATION_KEY}`
@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const accCollection: mongoDB.Collection = db.collection("accomodation");
 
-  const singleAcc = await accCollection.findOne({ _id: new ObjectId(accId) });
+  const singleAcc = await accCollection.findOne({ _id: new ObjectId(id) });
 
   client.close();
 
