@@ -1,8 +1,7 @@
-import { Typography, Card, Container, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import Image from "next/image";
-import { Values } from "./accomodation-form";
 import classes from "./accomodation-detail.module.scss";
+import { Values } from "./accomodation-form";
 
 const AccomodationDetail: React.FC<Values> = (props) => {
   const mapSearch = () => {
@@ -19,7 +18,7 @@ const AccomodationDetail: React.FC<Values> = (props) => {
   return (
     <Box className={classes.container}>
       <div className={classes.imageContainer}>
-        <img src={props.image} alt={props.title} />
+        <img className={classes.image} src={props.image} alt={props.title} />
       </div>
 
       <ul className={classes.content}>
@@ -65,39 +64,16 @@ const AccomodationDetail: React.FC<Values> = (props) => {
       </ul>
 
       <div className={classes.buttonContainer}>
-        <div className={classes.btn}>
-          <div className={classes.btn}>
-            <Button
-              href="mailto:jonvdberg8@gmail.com"
-              variant="outlined"
-              color="primary"
-            >
-              Contact
-            </Button>
-          </div>
-        </div>
+        <Button
+          href="mailto:jonvdberg8@gmail.com"
+          variant="outlined"
+          color="primary"
+        >
+          Contact
+        </Button>
       </div>
     </Box>
   );
 };
 
 export default AccomodationDetail;
-
-{
-  /* <Box className={classes.container}>
-      <Typography className={classes.title} variant="h5" component="h2">
-        {props.title}
-      </Typography>
-
-      <Typography className={classes.address} variant="h5" component="h2">
-        {props.address}
-      </Typography>
-
-      <Typography className={classes.price} variant="h5" component="h2">
-        {props.price}
-      </Typography>
-      <Container className={classes.imageContainer}>
-        <Image className={classes.image} src={props.image} alt={props.title} layout='fill' />
-      </Container>
-    </Box> */
-}

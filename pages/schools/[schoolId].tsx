@@ -10,9 +10,7 @@ interface SchoolProps {
   school: Values;
 }
 
-const SchoolDetailsPage: React.FC<SchoolProps> = (
-  props
-): ReactJSXElement => {
+const SchoolDetailsPage: React.FC<SchoolProps> = (props): ReactJSXElement => {
   return (
     <SchoolDetail
       title={props.school.title}
@@ -65,7 +63,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const schoolCollection: mongoDB.Collection = db.collection("schools");
 
-  const singleSchool = await schoolCollection.findOne({ _id: new ObjectId(id) });
+  const singleSchool = await schoolCollection.findOne({
+    _id: new ObjectId(id),
+  });
 
   client.close();
 

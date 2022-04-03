@@ -1,4 +1,4 @@
-import { Button, Container } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Values } from "./accomodation-form";

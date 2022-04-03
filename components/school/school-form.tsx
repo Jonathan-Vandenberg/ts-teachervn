@@ -19,7 +19,7 @@ export type Values = {
   pay: string;
   address: string;
   duration: string;
-  notes?: string;
+  notes: string;
   image: string;
   id: string;
 };
@@ -43,7 +43,7 @@ const SchoolForm: React.FC<Props> = ({ onSubmit }) => {
           onSubmit(values);
         }}
       >
-        {({ values, handleChange, handleBlur }) => (
+        {({ values, handleChange, handleBlur, setFieldValue }) => (
           <Form>
             <Grid
               container
@@ -123,16 +123,7 @@ const SchoolForm: React.FC<Props> = ({ onSubmit }) => {
                 onBlur={handleBlur}
               />
 
-              <TextField
-                fullWidth
-                margin="normal"
-                required={true}
-                placeholder="Image Url"
-                name="image"
-                value={values.image}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
+              {/*<input type='file' name='image' onChange={(event: HTMLInputEvent) => setFieldValue('image', event.target.files[0])} />*/}
               <Box style={{ padding: "2rem" }}>
                 <Button
                   type="submit"

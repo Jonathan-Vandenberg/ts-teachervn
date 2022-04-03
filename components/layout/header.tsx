@@ -10,6 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
+import { palette } from "@mui/system";
 import { useRouter } from "next/router";
 import * as React from "react";
 import { useEffect } from "react";
@@ -71,7 +72,8 @@ const ResponsiveAppBar = () => {
       setAnchorElUser(null);
     } else {
       router.push(
-        "/" + e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase()
+        "/" +
+          e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase().trim()
       );
       setAnchorElUser(null);
     }
@@ -82,15 +84,16 @@ const ResponsiveAppBar = () => {
       setAnchorElUser(null);
     } else {
       router.push(
-        "/" + e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase()
+        "/" +
+          e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase().trim()
       );
       setAnchorElUser(null);
     }
   };
 
   return (
-    <AppBar position="fixed" className={classes.nav} id="navbar">
-      <Container maxWidth="xl" style={{ height: "8vh" }}>
+    <AppBar  position="fixed" className={classes.nav} id="navbar">
+      <Container color='primary' maxWidth="xl" style={{ height: "8vh" }}>
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton

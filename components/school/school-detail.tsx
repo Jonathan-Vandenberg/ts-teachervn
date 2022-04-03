@@ -1,8 +1,7 @@
-import { Typography, Card, Container, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import Image from "next/image";
-import { Values } from "./school-form";
 import classes from "./school-detail.module.scss";
+import { Values } from "./school-form";
 
 const SchoolDetail: React.FC<Values> = (props) => {
   const mapSearch = () => {
@@ -19,7 +18,7 @@ const SchoolDetail: React.FC<Values> = (props) => {
   return (
     <Box className={classes.container}>
       <div className={classes.imageContainer}>
-        <img src={props.image} alt={props.title} />
+        <img className={classes.image} src={props.image} alt={props.title} />
       </div>
 
       <ul className={classes.content}>
@@ -65,17 +64,13 @@ const SchoolDetail: React.FC<Values> = (props) => {
       </ul>
 
       <div className={classes.buttonContainer}>
-        <div className={classes.btn}>
-          <div className={classes.btn}>
-            <Button
-              href="mailto:jonvdberg8@gmail.com"
-              variant="outlined"
-              color="primary"
-            >
-              Contact
-            </Button>
-          </div>
-        </div>
+        <Button
+          href="mailto:jonvdberg8@gmail.com"
+          variant="outlined"
+          color="primary"
+        >
+          Contact
+        </Button>
       </div>
     </Box>
   );

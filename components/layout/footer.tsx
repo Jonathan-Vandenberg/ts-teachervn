@@ -4,12 +4,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
-import classes from './footer.module.scss';
+import classes from "./footer.module.scss";
 
 export default function StickyFooter(): React.ReactElement {
   return (
     <Box
-    className={classes.container}
+      className={classes.container}
       component="footer"
       sx={{
         py: 0,
