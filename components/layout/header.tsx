@@ -10,7 +10,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import { palette } from "@mui/system";
 import { useRouter } from "next/router";
 import * as React from "react";
 import { useEffect } from "react";
