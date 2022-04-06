@@ -15,7 +15,6 @@ export default function StickyFooter(): React.ReactElement {
         py: 0,
         px: 0,
         mt: "auto",
-        backgroundColor: "rgb(8,90,138)",
       }}
     >
       <CssBaseline />

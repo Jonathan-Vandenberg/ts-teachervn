@@ -182,10 +182,10 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Post job offers">
               <Button
                 onClick={handleOpenUserMenu}
-                sx={{ p: 0 }}
+                sx={{ p: 1 }}
                 className={classes.button}
               >
                 Agents

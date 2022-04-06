@@ -39,12 +39,13 @@ const AccomodationForm: React.FC<Props> = ({ onSubmit }) => {
           notes: "",
           id: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, {resetForm}) => {
           onSubmit(values);
+          resetForm();
         }}
       >
-        {({ values, handleChange, handleBlur }) => (
-          <Form>
+        {({ values, handleChange, handleBlur, resetForm }) => (
+          <Form className={classes.form}>
             <Grid
               container
               spacing={0}

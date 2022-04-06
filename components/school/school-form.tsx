@@ -39,11 +39,12 @@ const SchoolForm: React.FC<Props> = ({ onSubmit }) => {
           notes: "",
           id: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, {resetForm}) => {
           onSubmit(values);
+          resetForm()
         }}
       >
-        {({ values, handleChange, handleBlur, setFieldValue }) => (
+        {({ values, handleChange, handleBlur }) => (
           <Form>
             <Grid
               container
@@ -123,7 +124,18 @@ const SchoolForm: React.FC<Props> = ({ onSubmit }) => {
                 onBlur={handleBlur}
               />
 
-              {/*<input type='file' name='image' onChange={(event: HTMLInputEvent) => setFieldValue('image', event.target.files[0])} />*/}
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  multiline
+                  rows="2"
+                  placeholder="Image Url"
+                  name="image"
+                  value={values.image}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+
               <Box style={{ padding: "2rem" }}>
                 <Button
                   type="submit"

@@ -1,9 +1,10 @@
-import { pink, purple, red, black } from '@material-ui/core/colors'
+import { pink, black } from '@material-ui/core/colors'
 
 const theme = {
   palette: {
     primary: black,
     secondary: pink
+    // type: 'dark'
   },
 
   typography: {

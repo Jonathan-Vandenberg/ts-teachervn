@@ -6,12 +6,12 @@ type Data = {
   body: Values;
 };
 
-export const handler = async (
+const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) => {
   if (req.method === "POST") {
-    const data = req.body;
+    const data: Values = req.body;
     const client = await MongoClient.connect(`${process.env.ACCOMODATION_KEY}`);
     const db = client.db();
     const accCollection = db.collection("accomodation");

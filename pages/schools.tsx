@@ -1,4 +1,3 @@
-import { ClassNames } from "@emotion/react";
 import { MongoClient } from "mongodb";
 import Head from "next/head";
 import * as React from "react";

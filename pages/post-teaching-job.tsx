@@ -1,25 +1,15 @@
-import SchoolForm, { Values } from "../components/school/school-form";
+import SchoolForm from '../components/school/school-form';
+import { Values } from '../components/school/school-form';
 
-const NewAcc = () => {
-  const addAccHandler = async (schoolData: Values) => {
-    const data = new FormData();
-    data.append("title", schoolData.title);
-    data.append("description", schoolData.description);
-    data.append("image", schoolData.image);
-    data.append("pay", schoolData.pay);
-    data.append("address", schoolData.address);
-    data.append("duration", schoolData.duration);
-    data.append("notes", schoolData.notes);
-    data.append("id", schoolData.id);
-
+const NewSchool = () => {
+  const addSchoolHandler = async (schoolData: Values) => {
     const response = await fetch("/api/schools-handler", {
       method: "POST",
       body: JSON.stringify(schoolData),
-      headers: new Headers({ accept: "application/json" }),
-    });
-  };
-
-  return <SchoolForm onSubmit={addAccHandler} />;
+      headers: { "Content-Type": "application/json" }
+  })
 };
-
-export default NewAcc;
+    return <SchoolForm onSubmit={addSchoolHandler}/>
+  }
+  
+  export default NewSchool
