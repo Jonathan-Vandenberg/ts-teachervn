@@ -72,7 +72,8 @@ const ResponsiveAppBar = () => {
     } else {
       router.push(
         "/" +
-          e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase().trim()
+          e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase().trim().slice(0, -1)
+          // There is a dash added at the end of the 'settings' strings, don't know why. Hence the slice(0, -1) hack.
       );
       setAnchorElUser(null);
     }
@@ -84,7 +85,7 @@ const ResponsiveAppBar = () => {
     } else {
       router.push(
         "/" +
-          e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase().trim()
+          e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase().slice(0, -1)
       );
       setAnchorElUser(null);
     }
@@ -181,7 +182,7 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Post job offers">
+            <Tooltip title="Post listings">
               <Button
                 onClick={handleOpenUserMenu}
                 sx={{ p: 1 }}
