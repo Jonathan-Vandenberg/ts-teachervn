@@ -1,7 +1,5 @@
 import NextAuth from 'next-auth'
-import AppleProvider from 'next-auth/providers/apple'
 import GoogleProvider from 'next-auth/providers/google'
-import EmailProvider from 'next-auth/providers/email'
 import FacebookProvider from 'next-auth/providers/facebook'
 
 export default NextAuth({

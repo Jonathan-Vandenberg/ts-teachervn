@@ -190,6 +190,14 @@ const ResponsiveAppBar = () => {
                 Agents
               </Button>
             </Tooltip>
+            <Button
+                onClick={() => router.push('/login')}
+                sx={{ p: 1 }}
+                className={classes.button}
+              >
+                Login
+              </Button>
+
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
