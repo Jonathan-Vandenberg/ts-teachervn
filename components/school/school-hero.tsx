@@ -6,8 +6,6 @@ import classes from "./school-hero.module.scss";
 const SchoolHero: React.FC = (props) => {
   return (
     <section className={classes.container}>
-      <Image className={classes.image} src={image} alt="school-hero" />
-
       <motion.h1
         className={classes.title}
         layout

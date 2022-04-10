@@ -10,7 +10,9 @@ interface VolunteerProps {
   volunteer: Values;
 }
 
-const VolunteerDetailsPage: React.FC<VolunteerProps> = (props): ReactJSXElement => {
+const VolunteerDetailsPage: React.FC<VolunteerProps> = (
+  props
+): ReactJSXElement => {
   return (
     <VolunteerDetail
       title={props.volunteer.title}

@@ -5,40 +5,9 @@
   margin-top: 4rem;
   width: 100%;
   height: auto;
-  padding: 0;
-}
+  padding: 2rem;
 
-@media screen and (max-width: 500px) {
-  .container {
-    grid-template-columns: repeat(auto-fit, minmax(500px, 0.5fr));
+  .listItem {
+    padding: 1rem;
   }
-}
-
-.container ul {
-  margin: 0;
-  padding: 0;
-}
-
-.container li {
-  display: grid;
-  align-content: space-between;
-  padding: 1rem;
-  color: rgb(211, 207, 207);
-  cursor: pointer;
-  border-bottom: 1px solid rgb(170, 167, 167);
-}
-
-.container h3 {
-  padding: 0.1rem;
-  border-bottom: 1px solid rgb(133, 130, 130);
-  text-align: center;
-}
-
-.container p {
-  padding: 0.1rem;
-  word-wrap: unset;
-}
-
-.container i {
-  color: rgb(184, 182, 182);
 }

@@ -12,7 +12,7 @@ const TitlebarImageList: React.FC<Values> = (props) => {
   return (
     <Box className={classes.container}>
       {props.schools.map((school) => (
-        <ImageListItem key={school.id}>
+        <ImageListItem className={classes.listItem} key={school.id}>
           <SchoolSingle schools={school} />
           <ImageListItemBar
             title={school.title + ", " + school.address}

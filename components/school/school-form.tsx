@@ -39,9 +39,9 @@ const SchoolForm: React.FC<Props> = ({ onSubmit }) => {
           notes: "",
           id: "",
         }}
-        onSubmit={(values, {resetForm}) => {
+        onSubmit={(values, { resetForm }) => {
           onSubmit(values);
-          resetForm()
+          resetForm();
         }}
       >
         {({ values, handleChange, handleBlur }) => (
@@ -124,17 +124,17 @@ const SchoolForm: React.FC<Props> = ({ onSubmit }) => {
                 onBlur={handleBlur}
               />
 
-                <TextField
-                  fullWidth
-                  margin="normal"
-                  multiline
-                  rows="2"
-                  placeholder="Image Url"
-                  name="image"
-                  value={values.image}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
+              <TextField
+                fullWidth
+                margin="normal"
+                multiline
+                rows="2"
+                placeholder="Image Url"
+                name="image"
+                value={values.image}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
 
               <Box style={{ padding: "2rem" }}>
                 <Button

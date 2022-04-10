@@ -1,6 +1,4 @@
-import VolunteerForm, {
-  Values,
-} from "../components/volunteer/volunteer-form";
+import VolunteerForm, { Values } from "../components/volunteer/volunteer-form";
 
 const NewVol = () => {
   const addVolHandler = async (volData: Values) => {

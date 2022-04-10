@@ -6,7 +6,6 @@ import classes from "./volunteer-hero.module.scss";
 const VolunteerHero: React.FC = (props) => {
   return (
     <section className={classes.container}>
-
       <motion.h1
         className={classes.title}
         layout
@@ -18,7 +17,7 @@ const VolunteerHero: React.FC = (props) => {
       >
         In kindness, you can change the world.
       </motion.h1>
-      
+
       <Image className={classes.image} src={image} alt="volunteer-hero" />
 
       <p className={classes.text}>

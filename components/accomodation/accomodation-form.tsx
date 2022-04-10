@@ -39,7 +39,7 @@ const AccomodationForm: React.FC<Props> = ({ onSubmit }) => {
           notes: "",
           id: "",
         }}
-        onSubmit={(values, {resetForm}) => {
+        onSubmit={(values, { resetForm }) => {
           onSubmit(values);
           resetForm();
         }}

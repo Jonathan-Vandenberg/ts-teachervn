@@ -1,20 +1,20 @@
-import { pink, black } from '@material-ui/core/colors'
+import { pink, black } from "@material-ui/core/colors";
 
 const theme = {
   palette: {
     primary: black,
-    secondary: pink
+    secondary: pink,
     // type: 'dark'
   },
 
   typography: {
-    fontFamily: 'Quicksand',
+    fontFamily: "Quicksand",
     fontWeightXLight: 300,
     fontWeightLight: 400,
     fontWeightRegular: 500,
     fontWeightMedium: 600,
-    fontWeightBold: 700
-  }
-}
+    fontWeightBold: 700,
+  },
+};
 
-export default theme
+export default theme;

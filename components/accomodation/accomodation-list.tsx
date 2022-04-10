@@ -12,7 +12,7 @@ interface Props {
   accs?: Values[];
 }
 
-export default function TitlebarImageList ({ accs }: Props) {
+export default function TitlebarImageList({ accs }: Props) {
   return (
     <Box className={classes.container}>
       {accs?.map((acc) => (
@@ -26,4 +26,4 @@ export default function TitlebarImageList ({ accs }: Props) {
       ))}
     </Box>
   );
-};
+}

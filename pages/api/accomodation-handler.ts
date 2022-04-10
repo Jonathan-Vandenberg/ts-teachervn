@@ -6,10 +6,7 @@ type Data = {
   body: Values;
 };
 
-const handler = async (
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "POST") {
     const data: Values = req.body;
     const client = await MongoClient.connect(`${process.env.ACCOMODATION_KEY}`);

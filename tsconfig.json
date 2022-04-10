@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/_document.js",
-    "pages/app.ts"
-, "styles/theme.js"  ],
+    "pages/app.ts",
+    "styles/theme.js"
+  ],
   "exclude": ["node_modules"]
 }

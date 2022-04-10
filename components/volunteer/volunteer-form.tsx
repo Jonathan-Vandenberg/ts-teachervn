@@ -37,9 +37,9 @@ const VolunteerForm: React.FC<Props> = ({ onSubmit }) => {
           notes: "",
           id: "",
         }}
-        onSubmit={(values, {resetForm}) => {
+        onSubmit={(values, { resetForm }) => {
           onSubmit(values);
-          resetForm()
+          resetForm();
         }}
       >
         {({ values, handleChange, handleBlur, setFieldValue }) => (

@@ -1,4 +1,3 @@
-
 import AccomodationForm, {
   Values,
 } from "../components/accomodation/accomodation-form";

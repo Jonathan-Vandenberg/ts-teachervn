@@ -12,7 +12,11 @@ const SchoolSingle: React.FC<Values> = (props) => {
   };
 
   return (
-    <Container onClick={showDetailsHandler} className={classes.container}>
+    <Container
+      component="div"
+      onClick={showDetailsHandler}
+      className={classes.container}
+    >
       <Image
         className={classes.image}
         src={props.schools.image}

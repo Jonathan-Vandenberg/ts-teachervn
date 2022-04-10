@@ -1,231 +1,147 @@
-import MenuIcon from "@mui/icons-material/Menu";
-import SchoolIcon from "@mui/icons-material/School";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
-import { useRouter } from "next/router";
-import * as React from "react";
-import { useEffect } from "react";
-import classes from "./header.module.scss";
+import { Button } from "@material-ui/core";
+import { useEffect, useState } from "react";
+import logo from "../../images/1647263286woman-writing-silhouette-person.png";
+import classes from "./header.module.css";
+import Image from "next/image";
 
-const pages = [
-  "Home",
-  "Schools",
-  "Accomodation",
-  "Langauge Exchange",
-  "Volunteer",
-  "About",
-  "Contact",
-];
-
-const settings = [
-  "Post Teaching Job",
-  "Post Accomodation",
-  "Post Volunteer Position",
-  "Post Language Exchange",
-];
-
-const ResponsiveAppBar = () => {
-  const router = useRouter();
+export default function Header() {
+  const [dropTeachers, setDropTeachers] = useState(false);
+  const [dropAgents, setDropAgents] = useState(false);
 
   useEffect(() => {
-    let prevScrollPos: number = window.pageYOffset;
+    let prevScrollPos = window.pageYOffset;
     window.onscroll = function () {
-      let currentScrollPos: number = window.pageYOffset;
+      let currentScrollPos = window.pageYOffset;
       if (prevScrollPos > currentScrollPos || currentScrollPos === 0.0) {
-        document.getElementById("navbar")!.style.top = "0";
+        let nav = document.getElementById("navbar") as HTMLElement;
+        nav.style.top = "0";
+
+        let dropdownTeachers = document.getElementById(
+          "dropdownteachers"
+        ) as HTMLElement;
+        dropdownTeachers.style.top = "9vh";
+
+        let dropdownAgents = document.getElementById(
+          "dropdownagents"
+        ) as HTMLElement;
+        dropdownAgents.style.top = "9vh";
       } else {
-        document.getElementById("navbar")!.style.top = "-15vh";
+        let nav = document.getElementById("navbar") as HTMLElement;
+        nav.style.top = "-15vh";
+
+        setDropTeachers(false);
+        setDropAgents(false);
       }
       prevScrollPos = currentScrollPos;
     };
   }, []);
 
-  const pageChangeHandler = (url: string) => {
-    router.push(url);
-  };
-
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = (e: React.MouseEvent<HTMLElement>) => {
-    if (e.currentTarget.innerText === "") {
-      setAnchorElUser(null);
-    } else {
-      router.push(
-        "/" +
-          e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase().trim().slice(0, -1)
-          // There is a dash added at the end of the 'settings' strings, don't know why. Hence the slice(0, -1) hack.
-      );
-      setAnchorElUser(null);
-    }
-  };
-
-  const handleCloseUserMenu = (e: React.MouseEvent<HTMLElement>) => {
-    if (e.currentTarget.innerText === "") {
-      setAnchorElUser(null);
-    } else {
-      router.push(
-        "/" +
-          e.currentTarget.innerText.replace(/\s+/g, "-").toLowerCase().slice(0, -1)
-      );
-      setAnchorElUser(null);
-    }
-  };
-
   return (
-    <AppBar  position="fixed" className={classes.nav} id="navbar">
-      <Container color='primary' maxWidth="xl" style={{ height: "8vh" }}>
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+    <>
+      <header className={classes.container} id="navbar">
+        <ul className={classes.list}>
+          <li>
+            <Button
+              onMouseOver={() => {
+                setDropTeachers(true);
+                setDropAgents(false);
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
+              onClick={() => {
+                setDropTeachers(true);
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Box
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-          >
-            <IconButton>
-              <SchoolIcon style={{ color: "White" }} fontSize="large" />
-            </IconButton>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Button
-              onClick={() => pageChangeHandler("/")}
-              sx={{ my: 2, color: "white", display: "block" }}
-              className={classes.button}
-            >
-              Home
+              For Teachers
             </Button>
+          </li>
 
+          <li className={classes.logo}>
+            <a>
+              <Image src={logo} alt="logo" />
+            </a>
+          </li>
+
+          <li>
             <Button
-              onClick={() => pageChangeHandler("/schools")}
-              sx={{ my: 2, display: "block" }}
-              className={classes.button}
-            >
-              Schools
-            </Button>
-
-            <Button
-              onClick={() => pageChangeHandler("/accomodation")}
-              sx={{ my: 2, display: "block" }}
-              className={classes.button}
-            >
-              Accomodation
-            </Button>
-
-            <Button
-              onClick={() => pageChangeHandler("/volunteer")}
-              sx={{ my: 2, display: "block" }}
-              className={classes.button}
-            >
-              Volunteer
-            </Button>
-
-            <Button
-              onClick={() => pageChangeHandler("/language-exchange")}
-              sx={{ p: 0 }}
-              className={classes.button}
-            >
-              Language Exchange
-            </Button>
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Post listings">
-              <Button
-                onClick={handleOpenUserMenu}
-                sx={{ p: 1 }}
-                className={classes.button}
-              >
-                Agents
-              </Button>
-            </Tooltip>
-            <Button
-                onClick={() => router.push('/login')}
-                sx={{ p: 1 }}
-                className={classes.button}
-              >
-                Login
-              </Button>
-
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
+              onClick={() => {
+                setDropAgents(true);
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
+              onMouseOver={() => {
+                setDropAgents(true);
+                setDropTeachers(false);
               }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                
-                <MenuItem style={{padding:'1rem', display:'flex', flexDirection:'column'}} key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+              For Agents
+            </Button>
+          </li>
+        </ul>
+      </header>
+      <div
+        className={dropTeachers ? classes.dropdown : classes.dropdownhidden}
+        onMouseOver={() => setDropTeachers(true)}
+        onMouseLeave={() => setDropTeachers(false)}
+        onClick={() => setDropTeachers(false)}
+        id="dropdownteachers"
+      >
+        <a href="/schools">
+          <h3>Find Schools</h3>
+        </a>
+
+        <a href="/accomodation">
+          <h3>Find Accomodation</h3>
+        </a>
+
+        <a href="/language-exchange">
+          <h3>Language Exchange</h3>
+        </a>
+
+        <a href="/volunteer">
+          <h3>Volunteer</h3>
+        </a>
+
+        <a href="/accreditation">
+          <h3>Accreditation</h3>
+        </a>
+
+        <a href="/lesson-planning">
+          <h3>Lesson-planning</h3>
+        </a>
+
+        <a href="/best-practices">
+          <h3>Best Practices</h3>
+        </a>
+
+        <a href="/login">
+          <h3>Login</h3>
+        </a>
+      </div>
+
+      <div
+        id="dropdownagents"
+        className={dropAgents ? classes.dropdown : classes.dropdownhidden}
+        onMouseOver={() => setDropAgents(true)}
+        onMouseLeave={() => setDropAgents(false)}
+        onClick={() => setDropAgents(false)}
+      >
+        <a href="/post-job">
+          <h3>Post A Job Offer</h3>
+        </a>
+
+        <a href="/post-accomodation">
+          <h3>Post Accomodation</h3>
+        </a>
+
+        <a href="post-language-exchange">
+          <h3>Post Language exchange</h3>
+        </a>
+
+        <a href="/post-volunteer-position">
+          <h3>Post Volunteer Work</h3>
+        </a>
+
+        <a href="/login">
+          <h3>Login</h3>
+        </a>
+      </div>
+    </>
   );
-};
-export default ResponsiveAppBar;
+}
