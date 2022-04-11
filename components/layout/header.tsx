@@ -1,12 +1,12 @@
-import { Button, Container } from "@material-ui/core";
-import { signOut, signIn, useSession } from "next-auth/react";
+import Typography, { Button, Container } from '@material-ui/core';
+import MenuIcon from "@mui/icons-material/Menu";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import logo from "../../images/1647263286woman-writing-silhouette-person.png";
 import classes from "./header.module.css";
-import MenuIcon from "@mui/icons-material/Menu";
 
 export default function Header() {
   const [dropTeachers, setDropTeachers] = useState(false);

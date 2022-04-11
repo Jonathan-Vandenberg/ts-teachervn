@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
-body {
+body{
   margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: none;
 }

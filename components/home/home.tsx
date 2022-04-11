@@ -3,14 +3,23 @@ import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
 import * as React from "react";
 import classes from "./home.module.scss";
+import image from "../../images/home.svg";
+import Image from "next/image";
 
 const HomePage: React.FC<Session> = () => {
   const { data: session, status } = useSession();
 
   return (
     <Container className={classes.container}>
+      <Image
+        style={{ zIndex: "-10" }}
+        src={image}
+        alt="svg-Image"
+        layout="fill"
+      />
+
       <Typography className={classes.title} variant="h3">
-        TeacherVN
+        <strong>TeacherVN</strong>
       </Typography>
 
       <Typography className={classes.subtitle} variant="h5">
@@ -22,7 +31,7 @@ const HomePage: React.FC<Session> = () => {
         className={classes.welcome}
         variant="h6"
       >
-        Welcome {`${session?.user?.name}`}
+        {/* { Welcome {`${session?.user?.name}`}} */}
       </Typography>
 
       <Box className={classes.info}>

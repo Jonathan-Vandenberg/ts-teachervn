@@ -11,6 +11,8 @@ import {
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import BtnLogin from "../components/loginBtn/btn-login";
+import image from '../images/1647263286woman-writing-silhouette-person.png';
+import Image from 'next/image'
 
 type Providers = {
   google: {
@@ -43,16 +45,21 @@ export default function Login({ providers }: Props) {
   return (
     <Container
       style={{
-        height: "80vh",
+        height: "auto",
         width: "100%",
-        paddingTop: "12rem",
+        paddingTop: "8rem",
         justifyContent: "center",
         alignItems: "center",
         display: "flex",
         flexDirection: "column",
       }}
     >
-      <Typography style={{ padding: "2rem" }}>Sign in</Typography>
+      <Box style={{width: '200px', height: '200px'}}>
+        <Image src={image} alt='logo' style={{width: '360px', height: '360px'}} />
+      </Box>
+      
+      <Typography variant="h3"><strong>TeacherVN</strong></Typography>
+      <Typography variant="h5" style={{paddingBottom: '2rem'}}>Connecting Teachers To Schools</Typography>
       <Box style={{ padding: "1rem" }}>
         <Box style={{ padding: "1rem", width: "100%" }}>
           <BtnLogin
