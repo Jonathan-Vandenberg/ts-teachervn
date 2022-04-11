@@ -38,10 +38,37 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
+.menuIcon {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 565px) {
+  .container button {
+    display: none;
+  }
+  .menuIcon {
+    visibility: visible;
+  }
 }
 
 .dropdown {
+  background-color: rgba(238, 238, 238, 0.9);
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  border-radius: 4px;
+  padding: 1rem;
+  overflow: hidden;
+  transition: all 0.5s;
+  visibility: visible;
+  position: fixed;
+  justify-items: center;
+  top: 9vh;
+  text-decoration: none;
+  color: black;
+}
+
+.menuIconDropdown {
   background-color: rgba(238, 238, 238, 0.9);
   width: 100%;
   text-align: center;

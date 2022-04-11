@@ -1,17 +1,19 @@
-import { Button } from "@material-ui/core";
-import { signOut, useSession } from "next-auth/react";
+import { Button, Container } from "@material-ui/core";
+import { signOut, signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import logo from "../../images/1647263286woman-writing-silhouette-person.png";
 import classes from "./header.module.css";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export default function Header() {
   const [dropTeachers, setDropTeachers] = useState(false);
   const [dropAgents, setDropAgents] = useState(false);
+  const [dropMenu, setDropMenu] = useState(false);
 
-  const { status } = useSession();
+  const { data: session, status } = useSession();
 
   const router = useRouter();
 
@@ -45,19 +47,8 @@ export default function Header() {
 
   return (
     <>
-      <header className={classes.container} id="navbar">
+      <Container className={classes.container} id="navbar">
         <ul className={classes.list}>
-          <li>
-            <Button
-              onClick={() => {
-                setDropTeachers(true);
-                setDropAgents(false);
-              }}
-            >
-              For Teachers
-            </Button>
-          </li>
-
           <li className={classes.logo}>
             <a>
               <Image src={logo} alt="logo" />
@@ -67,11 +58,22 @@ export default function Header() {
           <li>
             <Button
               onClick={() => {
+                setDropTeachers(true);
+                setDropAgents(false);
+              }}
+            >
+              Teachers
+            </Button>
+          </li>
+
+          <li>
+            <Button
+              onClick={() => {
                 setDropAgents(true);
                 setDropTeachers(false);
               }}
             >
-              For Agents
+              Agents
             </Button>
           </li>
 
@@ -98,8 +100,14 @@ export default function Header() {
               </Button>
             </li>
           )}
+          <MenuIcon
+            onClick={() => {
+              setDropMenu(curr => !curr), setDropTeachers(false), setDropAgents(false);
+            }}
+            className={classes.menuIcon}
+          />
         </ul>
-      </header>
+      </Container>
       <div
         className={dropTeachers ? classes.dropdown : classes.dropdownhidden}
         onMouseOver={() => setDropTeachers(true)}
@@ -159,6 +167,61 @@ export default function Header() {
           <h3>Post Volunteer Work</h3>
         </Link>
       </div>
+
+      {dropMenu && !dropTeachers && !dropAgents && (
+        <div className={classes.menuIconDropdown}>
+          <h3
+            className={classes.menuTeachers}
+            onClick={() => {
+              setDropMenu(false), setDropTeachers(true), setDropAgents(false);
+            }}
+          >
+            Teachers
+          </h3>
+          <h3
+            className={classes.menuTeachers}
+            onClick={() => {
+              setDropMenu(false), setDropAgents(true), setDropTeachers(false);
+            }}
+          >
+            Agents
+          </h3>
+          <h3
+            className={classes.menuTeachers}
+            onClick={() => {
+              setDropMenu(false), router.push("/about");
+            }}
+          >
+            About
+          </h3>
+          <h3
+            className={classes.menuTeachers}
+            onClick={() => {
+              setDropMenu(false), router.push("/contact");
+            }}
+          >
+            Contact
+          </h3>
+          {session && (
+            <h3
+              onClick={() => {
+                signOut();
+              }}
+            >
+              Sign Out
+            </h3>
+          )}
+          {!session && (
+            <h3
+              onClick={() => {
+                signIn();
+              }}
+            >
+              Sign In
+            </h3>
+          )}
+        </div>
+      )}
     </>
   );
 }

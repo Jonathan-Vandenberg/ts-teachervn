@@ -22,7 +22,7 @@ export type Values = {
   duration: string;
   notes?: string;
   image: string;
-  _id: ObjectId;
+  id: ObjectId;
 };
 
 const AccomodationForm: React.FC<Props> = ({ onSubmit }) => {
@@ -38,7 +38,7 @@ const AccomodationForm: React.FC<Props> = ({ onSubmit }) => {
           address: "",
           duration: "",
           notes: "",
-          _id: new ObjectId(),
+          id: new ObjectId(),
         }}
         onSubmit={(values, { resetForm }) => {
           onSubmit(values);

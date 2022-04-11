@@ -15,7 +15,7 @@ export default function TitlebarImageList({ accs }: Props) {
   return (
     <Box className={classes.container}>
       {accs?.map((acc: Values) => (
-        <ImageListItem key={acc._id}>
+        <ImageListItem key={acc.id}>
           <AccomodationSingle accs={acc} />
           <ImageListItemBar
             title={acc.title + ", " + acc.address}

@@ -5,9 +5,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
   margin-top: 5rem;
   text-align: center;
+  padding: 0;
 
   .imageContainer {
     width: 100%;
@@ -23,6 +23,7 @@
 
   .content {
     text-align: left;
+    padding: 1rem;
 
     .title {
       font-family: "BIZ UDMincho", serif;
@@ -62,21 +63,26 @@
       font-size: 1.5rem;
       color: rgb(45, 45, 45);
       padding: 0;
+      list-style: none;
+      margin-bottom: 1px solid rgb(120, 119, 119);
     }
 
     .pay {
+      list-style: none;
       font-size: 1.5rem;
       color: rgb(45, 45, 45);
       padding: 0;
     }
 
     .notes {
+      list-style: none;
       font-size: 1.5rem;
       color: rgb(45, 45, 45);
       padding: 0;
     }
 
     .duration {
+      list-style: none;
       font-size: 1.5rem;
       color: rgb(45, 45, 45);
       padding: 0;

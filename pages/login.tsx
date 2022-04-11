@@ -43,6 +43,8 @@ export default function Login({ providers }: Props) {
   return (
     <Container
       style={{
+        height: "80vh",
+        width: "100%",
         paddingTop: "12rem",
         justifyContent: "center",
         alignItems: "center",
@@ -51,27 +53,31 @@ export default function Login({ providers }: Props) {
       }}
     >
       <Typography style={{ padding: "2rem" }}>Sign in</Typography>
-      <Box>
-        <BtnLogin
-          bgColor={"#FABC05"}
-          txtColor={"white"}
-          provider={providers.google}
-          variant="outlined"
-          startIcon={<GoogleIcon />}
-        >
-          Sign in with {providers.google.name}
-        </BtnLogin>
-      </Box>
-      <Box>
-        <BtnLogin
-          bgColor={"#4267B2"}
-          txtColor={"white"}
-          provider={providers.facebook}
-          variant="outlined"
-          startIcon={<FacebookIcon />}
-        >
-          Sign in with {providers.facebook.name}
-        </BtnLogin>
+      <Box style={{ padding: "1rem" }}>
+        <Box style={{ padding: "1rem", width: "100%" }}>
+          <BtnLogin
+            bgColor={"#FABC05"}
+            txtColor={"white"}
+            provider={providers.google}
+            variant="outlined"
+            startIcon={<GoogleIcon />}
+            width={"100%"}
+          >
+            Sign in with {providers.google.name}
+          </BtnLogin>
+        </Box>
+        <Box style={{ padding: "1rem", width: "100%" }}>
+          <BtnLogin
+            bgColor={"#4267B2"}
+            txtColor={"white"}
+            provider={providers.facebook}
+            variant="outlined"
+            startIcon={<FacebookIcon />}
+            width={"100%"}
+          >
+            Sign in with {providers.facebook.name}
+          </BtnLogin>
+        </Box>
       </Box>
       {session && <Button onClick={() => signOut()}>Sign out</Button>}
     </Container>

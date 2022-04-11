@@ -20,10 +20,8 @@ const AccomodationDetailsPage: React.FC<AccProps> = (
       description={props.accData.description}
       duration={props.accData.duration}
       notes={props.accData.notes}
-      id={props.accData.id}
       price={props.accData.price}
       image={props.accData.image}
-      _id={props.accData._id}
     />
   );
 };

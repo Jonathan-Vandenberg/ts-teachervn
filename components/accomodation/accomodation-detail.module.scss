@@ -23,6 +23,7 @@
 
   .content {
     text-align: left;
+    padding: 1rem;
 
     .title {
       font-family: "BIZ UDMincho", serif;
@@ -61,24 +62,28 @@
       font-size: 1.5rem;
       color: rgb(45, 45, 45);
       padding: 0;
+      list-style: none;
     }
 
     .price {
       font-size: 1.5rem;
       color: rgb(45, 45, 45);
       padding: 0;
+      list-style: none;
     }
 
     .notes {
       font-size: 1.5rem;
       color: rgb(45, 45, 45);
       padding: 0;
+      list-style: none;
     }
 
     .duration {
       font-size: 1.5rem;
       color: rgb(45, 45, 45);
       padding: 0;
+      list-style: none;
     }
   }
 

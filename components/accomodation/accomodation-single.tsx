@@ -12,7 +12,7 @@ const AccomodationSingle: React.FC<Props> = (props) => {
   const route = useRouter();
 
   const showDetailsHandler: () => void = () => {
-    route.push("/accomodation/" + props?.accs?._id);
+    route.push("/accomodation/" + props?.accs?.id);
   };
 
   return (

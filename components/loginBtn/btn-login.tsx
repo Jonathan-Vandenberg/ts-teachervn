@@ -12,6 +12,7 @@ interface BtnLogin {
   txtColor: string;
   startIcon: any;
   variant: string;
+  width: string;
 }
 
 export default function BtnLogin({
@@ -19,11 +20,16 @@ export default function BtnLogin({
   bgColor,
   txtColor,
   startIcon,
+  width,
 }: BtnLogin): JSX.Element {
   return (
     <div>
       <Button
-        style={{ backgroundColor: `${bgColor}`, color: `${txtColor}` }}
+        style={{
+          backgroundColor: `${bgColor}`,
+          color: `${txtColor}`,
+          width: `${width}`,
+        }}
         onClick={() => signIn(provider.id)}
         startIcon={startIcon}
       >
