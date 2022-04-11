@@ -9,17 +9,17 @@ const HomePage: React.FC<Session> = () => {
 
   return (
     <Container className={classes.container}>
-      <Typography className={classes.title} variant="h1">
+      <Typography className={classes.title} variant="h3">
         TeacherVN
       </Typography>
 
-      <Typography className={classes.subtitle} variant="h4">
+      <Typography className={classes.subtitle} variant="h5">
         Connecting teachers to classrooms
       </Typography>
 
       <Typography
         style={{ paddingTop: "3rem" }}
-        className={classes.subtitle}
+        className={classes.welcome}
         variant="h6"
       >
         Welcome {`${session?.user?.name}`}

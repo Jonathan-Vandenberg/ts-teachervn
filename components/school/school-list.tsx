@@ -11,7 +11,7 @@ import SchoolSingle from "./school-single";
 const TitlebarImageList: React.FC<Values> = (props) => {
   return (
     <Box className={classes.container}>
-      {props.schools.map((school) => (
+      {props.schools.map((school: Values) => (
         <ImageListItem className={classes.listItem} key={school.id}>
           <SchoolSingle schools={school} />
           <ImageListItemBar

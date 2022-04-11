@@ -4,18 +4,28 @@
 
   .title {
     padding: 0rem;
+    border-bottom: 1px solid rgb(120, 119, 119);
+    width: auto;
+    height: auto;
   }
 
   .subtitle {
     padding: 0;
   }
 
+  .welcome {
+  }
+
   .info {
     padding: 0 0 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 
     .infoItem {
       padding-top: 12rem;
-      font-size: 2rem;
     }
   }
 }

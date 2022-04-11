@@ -40,6 +40,7 @@ export default function Header() {
 
         setDropTeachers(false);
         setDropAgents(false);
+        setDropMenu(false);
       }
       prevScrollPos = currentScrollPos;
     };
@@ -58,7 +59,7 @@ export default function Header() {
           <li>
             <Button
               onClick={() => {
-                setDropTeachers(true);
+                setDropTeachers((curr) => !curr);
                 setDropAgents(false);
               }}
             >
@@ -69,7 +70,7 @@ export default function Header() {
           <li>
             <Button
               onClick={() => {
-                setDropAgents(true);
+                setDropAgents((curr) => !curr);
                 setDropTeachers(false);
               }}
             >
@@ -102,7 +103,9 @@ export default function Header() {
           )}
           <MenuIcon
             onClick={() => {
-              setDropMenu(curr => !curr), setDropTeachers(false), setDropAgents(false);
+              setDropMenu((curr) => !curr),
+                setDropTeachers(false),
+                setDropAgents(false);
             }}
             className={classes.menuIcon}
           />
@@ -116,31 +119,45 @@ export default function Header() {
         id="dropdownteachers"
       >
         <Link href="/schools">
-          <h3>Find Schools</h3>
+          <a>
+            <h3 className={classes.h3}>Find Schools</h3>
+          </a>
         </Link>
 
         <Link href="/accomodation">
-          <h3>Find Accomodation</h3>
+          <a>
+            <h3 className={classes.h3}>Find Accomodation</h3>
+          </a>
         </Link>
 
         <Link href="/language-exchange">
-          <h3>Language Exchange</h3>
+          <a>
+            <h3 className={classes.h3}>Language Exchange</h3>
+          </a>
         </Link>
 
         <Link href="/volunteer">
-          <h3>Volunteer</h3>
+          <a>
+            <h3 className={classes.h3}>Volunteer</h3>
+          </a>
         </Link>
 
         <Link href="/accreditation">
-          <h3>Accreditation</h3>
+          <a>
+            <h3 className={classes.h3}>Accreditation</h3>
+          </a>
         </Link>
 
         <Link href="/lesson-planning">
-          <h3>Lesson-planning</h3>
+          <a>
+            <h3 className={classes.h3}>Lesson-planning</h3>
+          </a>
         </Link>
 
         <Link href="/best-practices">
-          <h3>Best Practices</h3>
+          <a>
+            <h3 className={classes.h3}>Best Practices</h3>
+          </a>
         </Link>
       </div>
 
@@ -152,26 +169,36 @@ export default function Header() {
         onClick={() => setDropAgents(false)}
       >
         <Link href="/post-teaching-job">
-          <h3>Post A Job Offer</h3>
+          <a>
+            <h3 className={classes.h3}>Post A Job Offer</h3>
+          </a>
         </Link>
 
         <Link href="/post-accomodation">
-          <h3>Post Accomodation</h3>
+          <a>
+            <h3 className={classes.h3}>Post Accomodation</h3>
+          </a>
         </Link>
 
         <Link href="post-language-exchange">
-          <h3>Post Language exchange</h3>
+          <a>
+            <h3 className={classes.h3}>Post Language Exchange</h3>
+          </a>
         </Link>
 
         <Link href="/post-volunteer-position">
-          <h3>Post Volunteer Work</h3>
+          <a>
+            <h3 className={classes.h3}>Post Volunteer Work</h3>
+          </a>
         </Link>
       </div>
-
       {dropMenu && !dropTeachers && !dropAgents && (
-        <div className={classes.menuIconDropdown}>
+        <div
+          className={classes.menuIconDropdown}
+          onMouseLeave={() => setDropMenu(false)}
+        >
           <h3
-            className={classes.menuTeachers}
+            className={classes.h3}
             onClick={() => {
               setDropMenu(false), setDropTeachers(true), setDropAgents(false);
             }}
@@ -179,7 +206,7 @@ export default function Header() {
             Teachers
           </h3>
           <h3
-            className={classes.menuTeachers}
+            className={classes.h3}
             onClick={() => {
               setDropMenu(false), setDropAgents(true), setDropTeachers(false);
             }}
@@ -187,7 +214,7 @@ export default function Header() {
             Agents
           </h3>
           <h3
-            className={classes.menuTeachers}
+            className={classes.h3}
             onClick={() => {
               setDropMenu(false), router.push("/about");
             }}
@@ -195,7 +222,7 @@ export default function Header() {
             About
           </h3>
           <h3
-            className={classes.menuTeachers}
+            className={classes.h3}
             onClick={() => {
               setDropMenu(false), router.push("/contact");
             }}
@@ -204,6 +231,7 @@ export default function Header() {
           </h3>
           {session && (
             <h3
+              className={classes.h3}
               onClick={() => {
                 signOut();
               }}
@@ -213,6 +241,7 @@ export default function Header() {
           )}
           {!session && (
             <h3
+              className={classes.h3}
               onClick={() => {
                 signIn();
               }}
