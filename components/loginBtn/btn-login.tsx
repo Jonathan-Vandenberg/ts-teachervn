@@ -3,13 +3,15 @@ import { signIn } from "next-auth/react";
 import React from "react";
 
 interface BtnLogin {
+  children: React.ReactNode;
   provider: {
     name: string;
     id: string;
   };
   bgColor: string;
   txtColor: string;
-  startIcon: Element;
+  startIcon: any;
+  variant: string;
 }
 
 export default function BtnLogin({
@@ -17,7 +19,7 @@ export default function BtnLogin({
   bgColor,
   txtColor,
   startIcon,
-}: BtnLogin) {
+}: BtnLogin): JSX.Element {
   return (
     <div>
       <Button

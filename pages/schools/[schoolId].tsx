@@ -1,10 +1,10 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import * as mongoDB from "mongodb";
 import { MongoClient, ObjectId } from "mongodb";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
-import { Values } from "../../components/school/school-form";
 import SchoolDetail from "../../components/school/school-detail";
+import { Values } from "../../components/school/school-form";
 
 interface SchoolProps {
   school: Values;

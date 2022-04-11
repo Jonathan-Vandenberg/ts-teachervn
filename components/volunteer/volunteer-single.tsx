@@ -4,7 +4,11 @@ import { useRouter } from "next/router";
 import { Values } from "./volunteer-form";
 import classes from "./volunteer-single.module.scss";
 
-const VolunteerSingle: React.FC<Values> = (props) => {
+export interface Props {
+  volunteers: Values;
+}
+
+const VolunteerSingle: React.FC<Props> = (props) => {
   const route = useRouter();
 
   const showDetailsHandler: () => void = () => {

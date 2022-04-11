@@ -35,7 +35,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      schools: schools.map<Values>((school) => ({
+      schools: schools.map((school: Values) => ({
         title: school.title,
         address: school.address,
         description: school.description,

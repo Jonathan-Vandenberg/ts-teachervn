@@ -1,4 +1,4 @@
-import { pink, black } from "@material-ui/core/colors";
+import { black, pink } from "@material-ui/core/colors";
 
 const theme = {
   palette: {

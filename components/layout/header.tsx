@@ -1,12 +1,19 @@
 import { Button } from "@material-ui/core";
+import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import logo from "../../images/1647263286woman-writing-silhouette-person.png";
 import classes from "./header.module.css";
-import Image from "next/image";
 
 export default function Header() {
   const [dropTeachers, setDropTeachers] = useState(false);
   const [dropAgents, setDropAgents] = useState(false);
+
+  const { status } = useSession();
+
+  const router = useRouter();
 
   useEffect(() => {
     let prevScrollPos = window.pageYOffset;
@@ -42,12 +49,9 @@ export default function Header() {
         <ul className={classes.list}>
           <li>
             <Button
-              onMouseOver={() => {
-                setDropTeachers(true);
-                setDropAgents(false);
-              }}
               onClick={() => {
                 setDropTeachers(true);
+                setDropAgents(false);
               }}
             >
               For Teachers
@@ -64,15 +68,36 @@ export default function Header() {
             <Button
               onClick={() => {
                 setDropAgents(true);
-              }}
-              onMouseOver={() => {
-                setDropAgents(true);
                 setDropTeachers(false);
               }}
             >
               For Agents
             </Button>
           </li>
+
+          {status === "unauthenticated" && (
+            <li>
+              <Button
+                onClick={() => {
+                  router.push("/login");
+                }}
+              >
+                Sign In
+              </Button>
+            </li>
+          )}
+
+          {status === "authenticated" && (
+            <li>
+              <Button
+                onClick={() => {
+                  signOut();
+                }}
+              >
+                Logout
+              </Button>
+            </li>
+          )}
         </ul>
       </header>
       <div
@@ -82,37 +107,33 @@ export default function Header() {
         onClick={() => setDropTeachers(false)}
         id="dropdownteachers"
       >
-        <a href="/schools">
+        <Link href="/schools">
           <h3>Find Schools</h3>
-        </a>
+        </Link>
 
-        <a href="/accomodation">
+        <Link href="/accomodation">
           <h3>Find Accomodation</h3>
-        </a>
+        </Link>
 
-        <a href="/language-exchange">
+        <Link href="/language-exchange">
           <h3>Language Exchange</h3>
-        </a>
+        </Link>
 
-        <a href="/volunteer">
+        <Link href="/volunteer">
           <h3>Volunteer</h3>
-        </a>
+        </Link>
 
-        <a href="/accreditation">
+        <Link href="/accreditation">
           <h3>Accreditation</h3>
-        </a>
+        </Link>
 
-        <a href="/lesson-planning">
+        <Link href="/lesson-planning">
           <h3>Lesson-planning</h3>
-        </a>
+        </Link>
 
-        <a href="/best-practices">
+        <Link href="/best-practices">
           <h3>Best Practices</h3>
-        </a>
-
-        <a href="/login">
-          <h3>Login</h3>
-        </a>
+        </Link>
       </div>
 
       <div
@@ -122,25 +143,21 @@ export default function Header() {
         onMouseLeave={() => setDropAgents(false)}
         onClick={() => setDropAgents(false)}
       >
-        <a href="/post-job">
+        <Link href="/post-teaching-job">
           <h3>Post A Job Offer</h3>
-        </a>
+        </Link>
 
-        <a href="/post-accomodation">
+        <Link href="/post-accomodation">
           <h3>Post Accomodation</h3>
-        </a>
+        </Link>
 
-        <a href="post-language-exchange">
+        <Link href="post-language-exchange">
           <h3>Post Language exchange</h3>
-        </a>
+        </Link>
 
-        <a href="/post-volunteer-position">
+        <Link href="/post-volunteer-position">
           <h3>Post Volunteer Work</h3>
-        </a>
-
-        <a href="/login">
-          <h3>Login</h3>
-        </a>
+        </Link>
       </div>
     </>
   );

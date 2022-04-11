@@ -1,10 +1,10 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import * as mongoDB from "mongodb";
 import { MongoClient, ObjectId } from "mongodb";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
-import { Values } from "../../components/accomodation/accomodation-form";
 import AccomodationDetail from "../../components/accomodation/accomodation-detail";
+import { Values } from "../../components/accomodation/accomodation-form";
 
 interface AccProps {
   accData: Values;
@@ -23,6 +23,7 @@ const AccomodationDetailsPage: React.FC<AccProps> = (
       id={props.accData.id}
       price={props.accData.price}
       image={props.accData.image}
+      _id={props.accData._id}
     />
   );
 };
@@ -30,12 +31,10 @@ const AccomodationDetailsPage: React.FC<AccProps> = (
 export default AccomodationDetailsPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client: mongoDB.MongoClient = await MongoClient.connect(
-    `${process.env.ACCOMODATION_KEY}`
-  );
-  const db: mongoDB.Db = client.db();
+  const client = await MongoClient.connect(`${process.env.ACCOMODATION_KEY}`);
+  const db = client.db();
 
-  const accsCollection: mongoDB.Collection = db.collection("accomodation");
+  const accsCollection = db.collection("accomodation");
 
   const accs = await accsCollection.find({}, { _id: 1 }).toArray();
 
@@ -43,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     fallback: false,
-    paths: accs.map((acc) => ({
+    paths: accs.map((acc: Values) => ({
       params: {
         accId: acc._id.toString(),
       },
@@ -55,15 +54,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const accId = context.params?.accId;
 
   const ObjectID = mongoDB.ObjectId;
-  const id: mongoDB.ObjectId = new ObjectID(accId);
+  const id = new ObjectID(accId);
 
-  const client: mongoDB.MongoClient = await MongoClient.connect(
-    `${process.env.ACCOMODATION_KEY}`
-  );
+  const client = await MongoClient.connect(`${process.env.ACCOMODATION_KEY}`);
 
-  const db: mongoDB.Db = client.db();
+  const db = client.db();
 
-  const accCollection: mongoDB.Collection = db.collection("accomodation");
+  const accCollection = db.collection("accomodation");
 
   const singleAcc = await accCollection.findOne({ _id: new ObjectId(id) });
 

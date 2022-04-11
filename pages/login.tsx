@@ -1,11 +1,16 @@
-import { Container, Typography } from "@material-ui/core";
+import { Box, Button, Container, Typography } from "@material-ui/core";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import { getProviders, getSession, GetSessionParams } from "next-auth/react";
-import Router from "next/router";
+import GoogleIcon from "@mui/icons-material/Google";
+import {
+  getProviders,
+  getSession,
+  GetSessionParams,
+  signOut,
+  useSession,
+} from "next-auth/react";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import BtnLogin from "../components/loginBtn/btn-login";
-import GoogleIcon from "@mui/icons-material/Google";
-import { Box } from "@material-ui/core";
 
 type Providers = {
   google: {
@@ -23,14 +28,17 @@ interface Props {
   providers: Providers;
 }
 
-const Login = ({ providers, session }: Props) => {
-  useEffect(() => {
-    if (session) Router.push("/");
-  }, [session]);
+export default function Login({ providers }: Props) {
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
-  if (session) {
-    return null;
-  }
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/");
+    }
+  }, [status]);
+
+  console.log(status);
 
   return (
     <Container
@@ -65,9 +73,10 @@ const Login = ({ providers, session }: Props) => {
           Sign in with {providers.facebook.name}
         </BtnLogin>
       </Box>
+      {session && <Button onClick={() => signOut()}>Sign out</Button>}
     </Container>
   );
-};
+}
 
 Login.getInitialProps = async (context: GetSessionParams | undefined) => {
   return {
@@ -75,5 +84,3 @@ Login.getInitialProps = async (context: GetSessionParams | undefined) => {
     session: await getSession(context),
   };
 };
-
-export default Login;

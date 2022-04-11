@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
-import { Values } from "../../components/school/school-form";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { Values } from "../../components/school/school-form";
 
 type Data = {
   body: Values;

@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
-import image from "../../images/pexels-pixabay-271816.jpg";
 import classes from "./accomodation-hero.module.scss";
 
-const AccomodationHero: React.FC = (props) => {
+const AccomodationHero: React.FC = () => {
   return (
     <>
       <section className={classes.container}>

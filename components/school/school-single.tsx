@@ -7,7 +7,7 @@ import classes from "./school-single.module.scss";
 const SchoolSingle: React.FC<Values> = (props) => {
   const route = useRouter();
 
-  const showDetailsHandler: () => void = () => {
+  const showDetailsHandler = () => {
     route.push("/schools/" + props.schools.id);
   };
 

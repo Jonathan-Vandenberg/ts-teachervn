@@ -1,6 +1,4 @@
 import { Box } from "@material-ui/core";
-import InfoIcon from "@mui/icons-material/Info";
-import IconButton from "@mui/material/IconButton";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import * as React from "react";
@@ -10,13 +8,14 @@ import AccomodationSingle from "./accomodation-single";
 
 interface Props {
   accs?: Values[];
+  key: React.Key | null | undefined;
 }
 
 export default function TitlebarImageList({ accs }: Props) {
   return (
     <Box className={classes.container}>
-      {accs?.map((acc) => (
-        <ImageListItem key={acc.id}>
+      {accs?.map((acc: Values) => (
+        <ImageListItem key={acc._id}>
           <AccomodationSingle accs={acc} />
           <ImageListItemBar
             title={acc.title + ", " + acc.address}

@@ -1,5 +1,4 @@
-import SchoolForm from "../components/school/school-form";
-import { Values } from "../components/school/school-form";
+import SchoolForm, { Values } from "../components/school/school-form";
 
 const NewSchool = () => {
   const addSchoolHandler = async (schoolData: Values) => {

@@ -4,14 +4,14 @@ import IconButton from "@mui/material/IconButton";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import * as React from "react";
-import { Values } from "./volunteer-form";
+import { Values, Props } from "./volunteer-form";
 import classes from "./volunteer-list.module.scss";
 import VolunteerSingle from "./volunteer-single";
 
-const TitlebarImageList: React.FC<Values> = (props) => {
+const TitlebarImageList: React.FC<Props> = (props) => {
   return (
     <Box className={classes.container}>
-      {props.volunteers.map((volunteer) => (
+      {props.volunteers.map((volunteer: Values) => (
         <ImageListItem key={volunteer.id}>
           <VolunteerSingle volunteers={volunteer} />
           <ImageListItemBar

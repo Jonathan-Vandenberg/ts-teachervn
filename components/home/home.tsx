@@ -1,10 +1,13 @@
-import { Typography, Box } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
+import { Session } from "next-auth";
+import { useSession } from "next-auth/react";
 import * as React from "react";
 import classes from "./home.module.scss";
-import headerSvg from "../../images/homesvg.svg";
-import Image from "next/image";
+import { useRouter } from "next/router";
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC<Session> = () => {
+  const { data: session, status } = useSession();
+
   return (
     <>
       <Box component="section" className={classes.container}>
@@ -14,6 +17,14 @@ const HomePage: React.FC = () => {
 
         <Typography className={classes.subtitle} variant="h4">
           Connecting teachers to classrooms
+        </Typography>
+
+        <Typography
+          style={{ paddingTop: "3rem" }}
+          className={classes.subtitle}
+          variant="h6"
+        >
+          Welcome {`${session?.user?.name}`}
         </Typography>
 
         <Box className={classes.info}>

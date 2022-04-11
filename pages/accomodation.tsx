@@ -1,4 +1,3 @@
-import { ClassNames } from "@emotion/react";
 import { MongoClient } from "mongodb";
 import Head from "next/head";
 import * as React from "react";
@@ -6,7 +5,7 @@ import { Values } from "../components/accomodation/accomodation-form";
 import AccomodationHero from "../components/accomodation/accomodation-hero";
 import TitlebarImageList from "../components/accomodation/accomodation-list";
 
-const Accomodation: React.FC<Values> = (props) => {
+const Accomodation: React.FC = (props) => {
   return (
     <>
       <Head>
@@ -36,7 +35,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      accs: accs.map<Values>((acc) => ({
+      accs: accs.map((acc: Values) => ({
         title: acc.title,
         address: acc.address,
         description: acc.description,

@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import { Form, Formik } from "formik";
 import * as React from "react";
 import classes from "./school-form.module.scss";
+import { ObjectId } from "bson";
 
 export interface Props {
   onSubmit: (values: Values) => void;
@@ -22,6 +23,7 @@ export type Values = {
   notes: string;
   image: string;
   id: string;
+  _id: ObjectId;
 };
 
 const SchoolForm: React.FC<Props> = ({ onSubmit }) => {

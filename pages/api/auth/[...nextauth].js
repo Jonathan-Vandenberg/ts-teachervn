@@ -1,16 +1,14 @@
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import FacebookProvider from "next-auth/providers/facebook";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import NextAuth from "next-auth/next";
+import FacebookProvider from "next-auth/providers/facebook";
+import GoogleProvider from "next-auth/providers/google";
 import clientPromise from "../../../mongodb";
 
-// For more information on each option (and a full list of options) go to
-// https://next-auth.js.org/configuration/options
-
 export default NextAuth({
+  adapter: MongoDBAdapter(clientPromise),
   secret: process.env.SECRET,
   session: {
-    jwt: true,
+    strategy: "jwt",
   },
   providers: [
     GoogleProvider({
@@ -25,6 +23,4 @@ export default NextAuth({
   pages: {
     signIn: "/login",
   },
-  adapter: MongoDBAdapter(clientPromise),
-  database: process.env.DATABASE_URL,
 });

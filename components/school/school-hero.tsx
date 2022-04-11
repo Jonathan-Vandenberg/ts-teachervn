@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
-import image from "../../images/pexels-pixabay-271816.jpg";
 import classes from "./school-hero.module.scss";
 
 const SchoolHero: React.FC = (props) => {

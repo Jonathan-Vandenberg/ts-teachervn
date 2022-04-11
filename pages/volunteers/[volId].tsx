@@ -1,10 +1,10 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import * as mongoDB from "mongodb";
 import { MongoClient, ObjectId } from "mongodb";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
-import { Values } from "../../components/volunteer/volunteer-form";
 import VolunteerDetail from "../../components/volunteer/volunteer-detail";
+import { Values } from "../../components/volunteer/volunteer-form";
 
 interface VolunteerProps {
   volunteer: Values;
@@ -29,12 +29,10 @@ const VolunteerDetailsPage: React.FC<VolunteerProps> = (
 export default VolunteerDetailsPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client: mongoDB.MongoClient = await MongoClient.connect(
-    `${process.env.VOLUNTEER_KEY}`
-  );
-  const db: mongoDB.Db = client.db();
+  const client = await MongoClient.connect(`${process.env.VOLUNTEER_KEY}`);
+  const db = client.db();
 
-  const volCollection: mongoDB.Collection = db.collection("volunteers");
+  const volCollection = db.collection("volunteers");
 
   const vols = await volCollection.find({}, { _id: 1 }).toArray();
 
@@ -42,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     fallback: false,
-    paths: vols.map((volunteer) => ({
+    paths: vols.map((volunteer: Values) => ({
       params: {
         volId: volunteer._id.toString(),
       },
@@ -54,15 +52,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const volId = context.params?.volId;
 
   const ObjectID = mongoDB.ObjectId;
-  const id: mongoDB.ObjectId = new ObjectID(volId);
+  const id = new ObjectID(volId);
 
-  const client: mongoDB.MongoClient = await MongoClient.connect(
-    `${process.env.VOLUNTEER_KEY}`
-  );
+  const client = await MongoClient.connect(`${process.env.VOLUNTEER_KEY}`);
 
-  const db: mongoDB.Db = client.db();
+  const db = client.db();
 
-  const volCollection: mongoDB.Collection = db.collection("volunteers");
+  const volCollection = db.collection("volunteers");
 
   const singleVolunteer = await volCollection.findOne({
     _id: new ObjectId(id),
