@@ -14,6 +14,8 @@ import BtnLogin from "../components/loginBtn/btn-login";
 import image from "../images/1647263286woman-writing-silhouette-person.png";
 import Image from "next/image";
 
+//test for githib contributions
+
 type Providers = {
   google: {
     name: string;
