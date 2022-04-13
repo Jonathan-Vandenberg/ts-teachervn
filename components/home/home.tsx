@@ -9,6 +9,9 @@ import imageAward from '../../images/achievement-award-badge-svgrepo-com.svg'
 import imageHouse from '../../images/building-home-house-svgrepo-com.svg'
 import imageChat from '../../images/chat-conversation-laptop-svgrepo-com.svg'
 import imageEfficiant from '../../images/configuration-gear-options-svgrepo-com.svg'
+import { motion } from 'framer-motion'
+import { dividerClasses } from "@mui/material";
+
 const HomePage: React.FC = () => {
 
   return (
@@ -39,30 +42,60 @@ const HomePage: React.FC = () => {
 
       <Box className={classes.info}>
         <Box className={classes.imageInfoPairLeft}>
-          <Box className={classes.svgs}>
+          <motion.div className={classes.svgs}
+        translate-y={{ y: 20 }}
+        animate={{ opacity: 1, z: 0 }}
+        initial={{ opacity: 0, z: '-100vw' }}
+        transition={{ duration: 1 }}
+        exit={{ opacity: 0 }}>
             <Image src={imageRocket} alt='find-a-job-rocket' style={{width: '300px', height: '300px'}} />
-          </Box>
+          </motion.div>
           <Box>
-            <Typography className={classes.infoItem} variant="h6">
+            <Typography 
+        translate-y={{ y: 20 }}
+        animate={{ opacity: 1, z: 0 }}
+        initial={{ opacity: 0, z: '-100vw' }}
+        transition={{ duration: 1 }}
+        exit={{ opacity: 0 }} className={classes.infoItem} component={motion.div} variant="h6">
             Apply for jobs
           </Typography>
           </Box>
         </Box>
 
         <Box className={classes.imageInfoPairRight}>
-          <Box className={classes.svgs}>
+          <motion.div className={classes.svgs} 
+        translate-y={{ y: 20 }}
+        animate={{ opacity: 1, z: 0 }}
+        initial={{ opacity: 0, z: '-100vw' }}
+        transition={{ duration: 1 }}
+        exit={{ opacity: 0 }}>
             <Image src={imageHouse} alt='accomodation' style={{width: '300px', height: '300px'}} />
-          </Box>
-          <Typography className={classes.infoItem} variant="h6">
+          </motion.div>
+          <Typography 
+        translate-y={{ y: 20 }}
+        animate={{ opacity: 1, z: 0 }}
+        initial={{ opacity: 0, z: '-100vw' }}
+        transition={{ duration: 1 }}
+        exit={{ opacity: 0 }} className={classes.infoItem} component={motion.div} variant="h6">
             Find accomodation
           </Typography>
         </Box>
         
         <Box className={classes.imageInfoPairLeft}>
-          <Box className={classes.svgs}>
+          <motion.div  layout
+        translate-y={{ y: 20 }}
+        animate={{ opacity: 1, z: 0 }}
+        initial={{ opacity: 0, z: '-100vw' }}
+        transition={{ duration: 1 }}
+        exit={{ opacity: 0 }} className={classes.svgs}>
             <Image src={imageHeart} alt='volunteer' style={{width: '300px', height: '300px'}} />
-          </Box>
-          <Typography className={classes.infoItem} variant="h6">
+          </motion.div>
+          <Typography layout
+        translate-y={{ y: 20 }}
+        animate={{ opacity: 1, z: 0 }}
+        initial={{ opacity: 0, z: '-100vw' }}
+        transition={{ duration: 1 }}
+        exit={{ opacity: 0 }} component={motion.div} className={classes.infoItem} variant="h6">
             Volunteer
           </Typography>
         </Box>
