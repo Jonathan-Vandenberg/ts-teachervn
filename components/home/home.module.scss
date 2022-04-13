@@ -11,15 +11,43 @@
   }
 
   .info {
-    padding: 0 0 5rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
 
-    .infoItem {
-      padding-top: 12rem;
-    }
+      .imageInfoPairLeft{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row-reverse;
+        text-align: center;
+
+        .svgs {
+          max-width: 400px;
+          height: auto;
+        }
+
+        .infoItem{
+          padding: 1rem;
+        }
+      }
+
+      .imageInfoPairRight{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .svgs{
+          max-width: 400px;
+          height: auto;  
+        }
+
+        .infoItem {
+          padding: 1rem;
+        }
+      }
+    
   }
 }

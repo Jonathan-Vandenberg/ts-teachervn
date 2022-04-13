@@ -1,13 +1,15 @@
 import { Box, Typography, Container } from "@material-ui/core";
-import { Session } from "next-auth";
-import { useSession } from "next-auth/react";
 import * as React from "react";
 import classes from "./home.module.scss";
 import image from "../../images/home.svg";
 import Image from "next/image";
-
-const HomePage: React.FC<Session> = () => {
-  const { data: session, status } = useSession();
+import imageRocket from '../../images/rocket-spaceship-start-svgrepo-com.svg'
+import imageHeart from '../../images/favorite-heart-like-svgrepo-com.svg'
+import imageAward from '../../images/achievement-award-badge-svgrepo-com.svg'
+import imageHouse from '../../images/building-home-house-svgrepo-com.svg'
+import imageChat from '../../images/chat-conversation-laptop-svgrepo-com.svg'
+import imageEfficiant from '../../images/configuration-gear-options-svgrepo-com.svg'
+const HomePage: React.FC = () => {
 
   return (
     <Container className={classes.container}>
@@ -26,6 +28,7 @@ const HomePage: React.FC<Session> = () => {
         Connecting teachers to classrooms
       </Typography>
 
+      
       <Typography
         style={{ paddingTop: "3rem" }}
         className={classes.welcome}
@@ -35,21 +38,62 @@ const HomePage: React.FC<Session> = () => {
       </Typography>
 
       <Box className={classes.info}>
-        <Typography className={classes.infoItem} variant="h6">
-          Apply for a job then find accomodation near your new school
-        </Typography>
-        <Typography className={classes.infoItem} variant="h6">
-          Volunteer your time and skills for good energy and work experience
-        </Typography>
-        <Typography className={classes.infoItem} variant="h6">
-          Learn the most efficient ways to adjust to living in a foreign country
-        </Typography>
-        <Typography className={classes.infoItem} variant="h6">
-          Boost your CV with certification and experience
-        </Typography>
-        <Typography className={classes.infoItem} variant="h6">
-          Learn the local language through language exhange groups
-        </Typography>
+        <Box className={classes.imageInfoPairLeft}>
+          <Box className={classes.svgs}>
+            <Image src={imageRocket} alt='find-a-job-rocket' style={{width: '300px', height: '300px'}} />
+          </Box>
+          <Box>
+            <Typography className={classes.infoItem} variant="h6">
+            Apply for jobs
+          </Typography>
+          </Box>
+        </Box>
+
+        <Box className={classes.imageInfoPairRight}>
+          <Box className={classes.svgs}>
+            <Image src={imageHouse} alt='accomodation' style={{width: '300px', height: '300px'}} />
+          </Box>
+          <Typography className={classes.infoItem} variant="h6">
+            Find accomodation
+          </Typography>
+        </Box>
+        
+        <Box className={classes.imageInfoPairLeft}>
+          <Box className={classes.svgs}>
+            <Image src={imageHeart} alt='volunteer' style={{width: '300px', height: '300px'}} />
+          </Box>
+          <Typography className={classes.infoItem} variant="h6">
+            Volunteer
+          </Typography>
+        </Box>
+        
+        <Box className={classes.imageInfoPairRight}>
+          <Box className={classes.svgs}>
+            <Image src={imageEfficiant} alt='adjust-to-a-new-country' style={{width: '300px', height: '300px'}} />
+          </Box>
+          <Typography className={classes.infoItem} variant="h6">
+            Living in a foreign country
+          </Typography>
+        </Box>
+        
+        <Box className={classes.imageInfoPairLeft}>
+          <Box className={classes.svgs}>
+          <Image src={imageAward} alt='boost-cv' style={{width: '300px', height: '300px'}} />
+          </Box>
+          <Typography className={classes.infoItem} variant="h6">
+            Boost your CV
+          </Typography>
+        </Box>
+        
+        <Box className={classes.imageInfoPairRight}>
+          <Box className={classes.svgs}>
+          <Image src={imageChat} alt='language-exchange' style={{width: '300px', height: '300px'}} />
+          </Box>
+          <Typography className={classes.infoItem} variant="h6">
+            Language exchange groups
+          </Typography>
+        </Box>
+        
       </Box>
     </Container>
   );

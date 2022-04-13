@@ -2,8 +2,13 @@ import { Button } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import classes from "./school-detail.module.scss";
 import { Values } from "./school-form";
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 const SchoolDetail: React.FC<Values> = (props) => {
+  const session = useSession();
+  const router = useRouter()
+
   const mapSearch = () => {
     window.open(
       "https://www.google.com/maps/search/" +
@@ -64,13 +69,13 @@ const SchoolDetail: React.FC<Values> = (props) => {
       </ul>
 
       <div className={classes.buttonContainer}>
-        <Button
+        {session.status === 'authenticated' ? <Button
           href="mailto:jonvdberg8@gmail.com"
           variant="outlined"
           color="primary"
         >
           Contact
-        </Button>
+        </Button> : <Button onClick={()=> router.push('/login')} variant="outlined">Login To Contact School</Button>}
       </div>
     </Box>
   );
