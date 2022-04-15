@@ -1,30 +1,76 @@
+import { Box } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import image from "../../images/pexels-pixabay-271816.jpg";
+import loveImage from "../../images/favorite-heart-like-svgrepo-com.svg";
 import classes from "./volunteer-hero.module.scss";
+import checkImage from "../../images/checked-svgrepo-com.svg";
+
+const heroVariants = {
+  hidden: {
+    y: -150,
+  },
+  visible: {
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 50,
+    },
+  },
+};
 
 const VolunteerHero: React.FC = (props) => {
   return (
-    <section className={classes.container}>
-      <motion.h1
-        className={classes.title}
-        layout
-        translate-y={{ y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -20 }}
-        transition={{ duration: 2 }}
-        exit={{ opacity: 0 }}
+    <section className={classes.mainContainer}>
+      <motion.div
+        className={classes.content}
+        variants={heroVariants}
+        initial="hidden"
+        animate="visible"
       >
-        In kindness, you can change the world.
-      </motion.h1>
+        <Box className={classes.loveImageContainer}>
+          <Image
+            src={loveImage}
+            alt="love-volunteers"
+            style={{ width: "300x", height: "300px" }}
+          />
+        </Box>
+        <Box className={classes.titleContainer}>
+          <Typography className={classes.title}>
+            <strong>In kindness, you can change the world</strong>
+          </Typography>
+        </Box>
+      </motion.div>
 
-      <Image className={classes.image} src={image} alt="volunteer-hero" />
+      <Box className={classes.subtitleContainer}>
+        <Box className={classes.subtitleItem}>
+          <Box className={classes.imageContainer}>
+            <Image src={checkImage} alt="green-check" />
+          </Box>
 
-      <p className={classes.text}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget
-        nunc eget nunc efficitur efficitur. Vestibulum eget nunc eget nunc
-        efficitur efficitur.
-      </p>
+          <Typography className={classes.subtitle}>Boosts your CV</Typography>
+        </Box>
+
+        <Box className={classes.subtitleItem}>
+          <Box className={classes.imageContainer}>
+            <Image src={checkImage} alt="green-check" />
+          </Box>
+
+          <Typography className={classes.subtitle}>
+            Expand your network
+          </Typography>
+        </Box>
+
+        <Box className={classes.subtitleItem}>
+          <Box className={classes.imageContainer}>
+            <Image src={checkImage} alt="green-check" />
+          </Box>
+
+          <Typography className={classes.subtitle}>
+            Become a better teacher
+          </Typography>
+        </Box>
+      </Box>
     </section>
   );
 };

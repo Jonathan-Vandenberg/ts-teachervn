@@ -85,8 +85,6 @@
 .dropdown h3:hover {
   color: rgb(245, 1, 87);
   text-decoration: none;
-  transform: scale(1.1);
-  transition: 0.9;
   cursor: pointer;
 }
 

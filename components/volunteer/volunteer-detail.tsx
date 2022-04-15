@@ -65,13 +65,19 @@ const VolunteerDetail: React.FC<Values> = (props) => {
       </ul>
 
       <div className={classes.buttonContainer}>
-        {session.status === 'authenticated' ? <Button
-          href="mailto:jonvdberg8@gmail.com"
-          variant="outlined"
-          color="primary"
-        >
-          Contact
-        </Button> : <Button onClick={()=> router.push('/login')} variant="outlined">Login To Contact Us</Button>}
+        {session.status === "authenticated" ? (
+          <Button
+            href="mailto:jonvdberg8@gmail.com"
+            variant="outlined"
+            color="primary"
+          >
+            Contact
+          </Button>
+        ) : (
+          <Button onClick={() => router.push("/login")} variant="outlined">
+            Login To Contact Us
+          </Button>
+        )}
       </div>
     </Box>
   );

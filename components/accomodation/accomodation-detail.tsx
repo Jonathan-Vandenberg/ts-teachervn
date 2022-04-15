@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 
 const AccomodationDetail: React.FC<Values> = (props) => {
   const router = useRouter();
-  const session = useSession()
+  const session = useSession();
 
   const mapSearch = () => {
     window.open(
@@ -69,13 +69,19 @@ const AccomodationDetail: React.FC<Values> = (props) => {
       </ul>
 
       <div className={classes.buttonContainer}>
-        {session.status === 'authenticated' ? <Button
-          href="mailto:jonvdberg8@gmail.com"
-          variant="outlined"
-          color="primary"
-        >
-          Contact
-        </Button> : <Button onClick={()=> router.push('/login')} variant="outlined">Login To Contact Us</Button>}
+        {session.status === "authenticated" ? (
+          <Button
+            href="mailto:jonvdberg8@gmail.com"
+            variant="outlined"
+            color="primary"
+          >
+            Contact
+          </Button>
+        ) : (
+          <Button onClick={() => router.push("/login")} variant="outlined">
+            Login To Contact Us
+          </Button>
+        )}
       </div>
     </Box>
   );

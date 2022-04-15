@@ -1,6 +1,6 @@
 .container {
   .title {
-    padding-top: 5rem;
+    padding-top: 7rem;
     border-bottom: 1px solid rgb(120, 119, 119);
     width: auto;
     height: auto;
@@ -15,39 +15,65 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 12rem;
 
-      .imageInfoPairLeft{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row-reverse;
-        text-align: center;
+    .imageInfoPairLeft {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row-reverse;
+      text-align: center;
+      width: 80vw;
+      height: auto;
+      padding-bottom: 8rem;
 
-        .svgs {
-          max-width: 400px;
-          height: auto;
-        }
+      .svgs {
+        max-width: 200px;
+        height: auto;
+      }
 
-        .infoItem{
+      .infoItem {
+        padding: 1rem;
+      }
+    }
+
+    .imageInfoPairRight {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 80vw;
+      height: auto;
+      padding-bottom: 8rem;
+
+      .svgs {
+        max-width: 200px;
+        height: auto;
+      }
+
+      .infoItem {
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .container {
+    .info {
+      .imageInfoPairLeft {
+        .infoItem {
+          font-size: 2rem;
           padding: 1rem;
         }
       }
 
-      .imageInfoPairRight{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-
-        .svgs{
-          max-width: 400px;
-          height: auto;  
-        }
-
+      .imageInfoPairRight {
         .infoItem {
           padding: 1rem;
+          font-size: 2rem;
         }
       }
-    
+    }
   }
 }
