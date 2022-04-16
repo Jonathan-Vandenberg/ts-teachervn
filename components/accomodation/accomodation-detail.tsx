@@ -22,9 +22,9 @@ const AccomodationDetail: React.FC<Values> = (props) => {
 
   return (
     <Box className={classes.container}>
-      <div className={classes.imageContainer}>
+      <Box className={classes.imageContainer}>
         <img className={classes.image} src={props.image} alt={props.title} />
-      </div>
+      </Box>
 
       <ul className={classes.content}>
         <li className={classes.title}>

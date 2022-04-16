@@ -8,7 +8,6 @@ import TextField from "@mui/material/TextField";
 import { Form, Formik } from "formik";
 import * as React from "react";
 import classes from "./accomodation-form.module.scss";
-import { ObjectId } from "bson";
 
 export interface Props {
   onSubmit: (values: Values) => void;
@@ -22,7 +21,7 @@ export type Values = {
   duration: string;
   notes?: string;
   image: string;
-  id: ObjectId;
+  id: string;
 };
 
 const AccomodationForm: React.FC<Props> = ({ onSubmit }) => {
@@ -38,7 +37,7 @@ const AccomodationForm: React.FC<Props> = ({ onSubmit }) => {
           address: "",
           duration: "",
           notes: "",
-          id: new ObjectId(),
+          id: "",
         }}
         onSubmit={(values, { resetForm }) => {
           onSubmit(values);

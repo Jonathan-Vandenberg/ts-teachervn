@@ -10,14 +10,13 @@
   padding: 0;
 
   .imageContainer {
-    width: 100%;
+    width: 80vw;
     height: "auto";
 
     .image {
       width: 100%;
-      height: 100%;
+      height: auto;
       padding: 1rem;
-      margin: 0;
     }
   }
 
@@ -41,7 +40,7 @@
       flex-direction: row-reverse;
       justify-content: center;
       align-items: center;
-      margin: 0;
+      padding: 1rem 0;
       border-bottom: 1px solid rgb(120, 119, 119);
 
       .addressBtn {
@@ -62,7 +61,6 @@
     .description {
       font-size: 1.5rem;
       color: rgb(45, 45, 45);
-      padding: 0;
       list-style: none;
       margin-bottom: 1px solid rgb(120, 119, 119);
     }
@@ -96,5 +94,52 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .container {
+    .imageContainer {
+      width: 100%;
+
+      .image {
+        width: 100%;
+      }
+    }
+
+    .content {
+      .title {
+        font-size: 0.8rem;
+      }
+
+      .addressContainer {
+        .address {
+          font-size: 0.9rem;
+        }
+      }
+
+      .description {
+        font-size: 1.2rem;
+      }
+
+      .pay {
+        font-size: 1.2rem;
+        padding: 0;
+      }
+
+      .notes {
+        font-size: 1.2rem;
+        padding: 0;
+      }
+
+      .duration {
+        font-size: 1.2rem;
+        padding: 0;
+      }
+    }
+
+    .buttonContainer {
+      padding: 0;
+    }
   }
 }

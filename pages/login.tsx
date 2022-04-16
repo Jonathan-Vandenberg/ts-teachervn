@@ -65,10 +65,22 @@ export default function Login({ providers }: Props) {
       <Typography variant="h3">
         <strong>TeacherVN</strong>
       </Typography>
-      <Typography variant="h5" style={{ paddingBottom: "2rem" }}>
+      <Typography variant="h6" style={{ paddingBottom: "2rem" }}>
         Connecting Teachers To Schools
       </Typography>
       <Box style={{ padding: "1rem" }}>
+        <Box style={{ padding: "1rem", width: "100%" }}>
+          <Button
+            style={{ backgroundColor: "#d1d1d1", color: "grey" }}
+            onClick={() => {
+              router.push("/home");
+            }}
+            variant="outlined"
+          >
+            Continue without login
+          </Button>
+        </Box>
+
         <Box style={{ padding: "1rem", width: "100%" }}>
           <BtnLogin
             bgColor={"#FABC05"}
@@ -101,7 +113,7 @@ export default function Login({ providers }: Props) {
 
 Login.getInitialProps = async (context: GetSessionParams | undefined) => {
   return {
-    providers: await getProviders(context),
-    session: await getSession(context),
+    providers: await getProviders(),
+    session: await getSession(context)
   };
 };

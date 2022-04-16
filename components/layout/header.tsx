@@ -1,4 +1,4 @@
-import Typography, { Button, Container } from "@material-ui/core";
+import { Button, Container } from "@material-ui/core";
 import MenuIcon from "@mui/icons-material/Menu";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
@@ -47,16 +47,17 @@ export default function Header() {
   }, []);
 
   const mainNav = (
-    <Container className={classes.container} id="navbar">
+    <Container className={classes.container} id="navbar" maxWidth={false}>
       <ul className={classes.list}>
         <li className={classes.logo}>
-          <a>
+          <a href="/home" style={{ position: "relative" }}>
             <Image src={logo} alt="logo" />
           </a>
         </li>
 
         <li>
           <Button
+            style={{ textTransform: "none" }}
             onClick={() => {
               setDropTeachers((curr) => !curr);
               setDropAgents(false);
@@ -68,6 +69,7 @@ export default function Header() {
 
         <li>
           <Button
+            style={{ textTransform: "none" }}
             onClick={() => {
               setDropAgents((curr) => !curr);
               setDropTeachers(false);
@@ -80,6 +82,7 @@ export default function Header() {
         {status === "unauthenticated" && (
           <li>
             <Button
+              style={{ textTransform: "none" }}
               onClick={() => {
                 router.push("/login");
               }}
@@ -92,11 +95,12 @@ export default function Header() {
         {status === "authenticated" && (
           <li>
             <Button
+              style={{ textTransform: "none", float: "right" }}
               onClick={() => {
                 signOut();
               }}
             >
-              Logout
+              Sign Out
             </Button>
           </li>
         )}
@@ -129,12 +133,6 @@ export default function Header() {
       <Link href="/accomodation">
         <a>
           <h3 className={classes.h3}>Find Accomodation</h3>
-        </a>
-      </Link>
-
-      <Link href="/language-exchange">
-        <a>
-          <h3 className={classes.h3}>Language Exchange</h3>
         </a>
       </Link>
 
@@ -181,12 +179,6 @@ export default function Header() {
       <Link href="/post-accomodation">
         <a>
           <h3 className={classes.h3}>Post Accomodation</h3>
-        </a>
-      </Link>
-
-      <Link href="post-language-exchange">
-        <a>
-          <h3 className={classes.h3}>Post Language Exchange</h3>
         </a>
       </Link>
 

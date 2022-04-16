@@ -6,17 +6,18 @@ import { Values } from "./accomodation-form";
 import classes from "./accomodation-list.module.scss";
 import AccomodationSingle from "./accomodation-single";
 
-interface Props {
-  accs?: Values[];
-  key: React.Key | null | undefined;
+interface Props extends Values {
+  accs: Values[];
+  acc: Values;
+  key: string;
 }
 
-export default function TitlebarImageList({ accs }: Props) {
+export default function TitlebarImageList(props: Props) {
   return (
     <Box className={classes.container}>
-      {accs?.map((acc: Values) => (
-        <ImageListItem key={acc.id}>
-          <AccomodationSingle accs={acc} />
+      {props.accs?.map((acc: Values) => (
+        <ImageListItem key={props.acc.title}>
+          <AccomodationSingle accs={props.acc} />
           <ImageListItemBar
             title={acc.title + ", " + acc.address}
             subtitle={acc.description}

@@ -10,14 +10,30 @@ export const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) => {
-  if (req.method === "POST") {
-    const data = req.body;
-    const client = await MongoClient.connect(`${process.env.SCHOOL_KEY}`);
-    const db = client.db();
-    const schoolCollection = db.collection("schools");
-    const result = await schoolCollection.insertOne(data);
+  const { method } = req;
 
-    client.close();
+  switch (method) {
+    case "DELETE":
+      break;
+
+    case "PUT":
+      break;
+
+    case "POST":
+      const data = req.body;
+      const client = await MongoClient.connect(`${process.env.SCHOOL_KEY}`);
+      const db = client.db();
+      const schoolCollection = db.collection("schools");
+      const result = await schoolCollection.insertOne(data);
+      client.close();
+      break;
+
+    default:
+      res.setHeader("Allow", ["GET", "POST"]);
+      res.status(405).end(`Method ${method} Not Allowed`);
+      break;
+  }
+  {
   }
 };
 

@@ -10,7 +10,9 @@ interface SchoolProps {
   school: Values;
 }
 
-const SchoolDetailsPage: React.FC<SchoolProps> = (props): ReactJSXElement => {
+const SchoolDetailsPage: React.FC<SchoolProps> = (
+  props: SchoolProps
+): ReactJSXElement => {
   return (
     <SchoolDetail
       title={props.school.title}
@@ -28,12 +30,10 @@ const SchoolDetailsPage: React.FC<SchoolProps> = (props): ReactJSXElement => {
 export default SchoolDetailsPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client: mongoDB.MongoClient = await MongoClient.connect(
-    `${process.env.SCHOOL_KEY}`
-  );
-  const db: mongoDB.Db = client.db();
+  const client = await MongoClient.connect(`${process.env.SCHOOL_KEY}`);
+  const db = client.db();
 
-  const schoolCollection: mongoDB.Collection = db.collection("schools");
+  const schoolCollection = db.collection("schools");
 
   const schools = await schoolCollection.find({}, { _id: 1 }).toArray();
 
@@ -53,15 +53,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const schoolId = context.params?.schoolId;
 
   const ObjectID = mongoDB.ObjectId;
-  const id: mongoDB.ObjectId = new ObjectID(schoolId);
+  const id = new ObjectID(schoolId);
 
-  const client: mongoDB.MongoClient = await MongoClient.connect(
-    `${process.env.SCHOOL_KEY}`
-  );
+  const client = await MongoClient.connect(`${process.env.SCHOOL_KEY}`);
 
-  const db: mongoDB.Db = client.db();
+  const db = client.db();
 
-  const schoolCollection: mongoDB.Collection = db.collection("schools");
+  const schoolCollection = db.collection("schools");
 
   const singleSchool = await schoolCollection.findOne({
     _id: new ObjectId(id),

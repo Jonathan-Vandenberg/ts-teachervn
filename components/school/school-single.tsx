@@ -4,7 +4,11 @@ import { useRouter } from "next/router";
 import { Values } from "./school-form";
 import classes from "./school-single.module.scss";
 
-const SchoolSingle: React.FC<Values> = (props) => {
+interface Props {
+  schools: Values;
+}
+
+const SchoolSingle: React.FC<Props> = (props) => {
   const route = useRouter();
 
   const showDetailsHandler = () => {
@@ -15,9 +19,10 @@ const SchoolSingle: React.FC<Values> = (props) => {
     <Container
       component="div"
       onClick={showDetailsHandler}
-      className={classes.container}
+      className={classes.imageContainer}
     >
       <Image
+        priority
         className={classes.image}
         src={props.schools.image}
         alt={props.schools.title}

@@ -5,7 +5,13 @@ import { Values } from "../components/accomodation/accomodation-form";
 import AccomodationHero from "../components/accomodation/accomodation-hero";
 import TitlebarImageList from "../components/accomodation/accomodation-list";
 
-const Accomodation: React.FC = (props) => {
+interface Props extends Values {
+  _id: string;
+  accs: Values[];
+}
+
+
+const Accomodation: React.FC<Props> = (props: Props) => {
   return (
     <>
       <Head>
@@ -16,7 +22,7 @@ const Accomodation: React.FC = (props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AccomodationHero />
+      {/* {<AccomodationHero />} */}
       <TitlebarImageList accs={props.accs} />
     </>
   );
@@ -35,7 +41,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      accs: accs.map((acc: Values) => ({
+      accs: accs.map((acc: Props) => ({
         title: acc.title,
         address: acc.address,
         description: acc.description,

@@ -6,6 +6,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { Form, Formik } from "formik";
+import { BSONType } from "mongodb";
 import * as React from "react";
 import classes from "./school-form.module.scss";
 
@@ -27,7 +28,9 @@ export type Values = {
 const SchoolForm: React.FC<Props> = ({ onSubmit }) => {
   return (
     <Container maxWidth="sm" className={classes.container}>
-      <Typography variant="h6">Create a new teaching post</Typography>
+      <Typography className={classes.title} variant="h6">
+        Create a new teaching post
+      </Typography>
       <Formik
         initialValues={{
           title: "",
@@ -39,13 +42,13 @@ const SchoolForm: React.FC<Props> = ({ onSubmit }) => {
           notes: "",
           id: "",
         }}
-        onSubmit={(values, { resetForm }) => {
+        onSubmit={(values: Values, { resetForm }) => {
           onSubmit(values);
           resetForm();
         }}
       >
         {({ values, handleChange, handleBlur }) => (
-          <Form>
+          <Form className={classes.form}>
             <Grid
               container
               spacing={0}

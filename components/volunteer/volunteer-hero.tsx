@@ -32,7 +32,6 @@ const VolunteerHero: React.FC = (props) => {
           <Image
             src={loveImage}
             alt="love-volunteers"
-            style={{ width: "300x", height: "300px" }}
           />
         </Box>
         <Box className={classes.titleContainer}>

@@ -1,9 +1,14 @@
 import { MongoClient } from "mongodb";
 import Head from "next/head";
 import * as React from "react";
-import { Values, Props } from "../components/volunteer/volunteer-form";
+import { Values } from "../components/volunteer/volunteer-form";
 import VolunteerHero from "../components/volunteer/volunteer-hero";
 import TitlebarImageList from "../components/volunteer/volunteer-list";
+
+interface Props extends Values {
+  volunteers: Values[];
+  _id: string;
+}
 
 const Volunteers: React.FC<Props> = (props) => {
   return (
@@ -35,7 +40,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      volunteers: vols.map((vol: Values) => ({
+      volunteers: vols.map((vol: Props) => ({
         title: vol.title,
         address: vol.address,
         description: vol.description,

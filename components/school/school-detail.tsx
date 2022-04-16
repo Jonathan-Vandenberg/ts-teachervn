@@ -4,6 +4,7 @@ import classes from "./school-detail.module.scss";
 import { Values } from "./school-form";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const SchoolDetail: React.FC<Values> = (props) => {
   const session = useSession();
@@ -22,9 +23,9 @@ const SchoolDetail: React.FC<Values> = (props) => {
 
   return (
     <Box className={classes.container}>
-      <div className={classes.imageContainer}>
+      <Box className={classes.imageContainer}>
         <img className={classes.image} src={props.image} alt={props.title} />
-      </div>
+      </Box>
 
       <ul className={classes.content}>
         <li className={classes.title}>

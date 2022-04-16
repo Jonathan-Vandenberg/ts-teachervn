@@ -1,6 +1,11 @@
 .container {
+  background-image: url("../../images/wave-haikei (5).svg"),
+    url("../../images/stacked-waves-haikei (1).svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
   .title {
-    padding-top: 7rem;
+    padding-top: 8rem;
     border-bottom: 1px solid rgb(120, 119, 119);
     width: auto;
     height: auto;

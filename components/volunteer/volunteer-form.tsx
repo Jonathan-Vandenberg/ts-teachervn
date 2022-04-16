@@ -23,7 +23,6 @@ export type Values = {
   notes: string;
   image: string;
   id: string;
-  _id: ObjectId;
 };
 
 const VolunteerForm: React.FC<Props> = ({ onSubmit }) => {

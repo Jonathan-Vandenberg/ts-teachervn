@@ -60,7 +60,7 @@
 }
 
 .dropdown {
-  background-color: rgba(238, 238, 238, 0.9);
+  background-color: rgba(250, 251, 252, 0.9);
   width: 100%;
   text-align: center;
   z-index: 10;
@@ -86,6 +86,8 @@
   color: rgb(245, 1, 87);
   text-decoration: none;
   cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.9;
 }
 
 .menuIconDropdown {

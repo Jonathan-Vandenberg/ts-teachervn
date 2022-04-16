@@ -5,7 +5,13 @@ import { Values } from "../components/school/school-form";
 import SchoolHero from "../components/school/school-hero";
 import TitlebarImageList from "../components/school/school-list";
 
-const Schools: React.FC<Values> = (props) => {
+interface Props extends Values {
+  _id: string;
+  schools: Values[];
+}
+
+
+const Schools: React.FC<Props> = (props: Props) => {
   return (
     <>
       <Head>
@@ -16,7 +22,7 @@ const Schools: React.FC<Values> = (props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SchoolHero />
+      {/* {<SchoolHero />} */}
       <TitlebarImageList schools={props.schools} />
     </>
   );
@@ -35,7 +41,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      schools: schools.map((school: Values) => ({
+      schools: schools.map((school: Props) => ({
         title: school.title,
         address: school.address,
         description: school.description,
