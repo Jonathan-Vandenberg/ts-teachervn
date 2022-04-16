@@ -6,8 +6,9 @@ import React from "react";
 import VolunteerDetail from "../../components/volunteer/volunteer-detail";
 import { Values } from "../../components/volunteer/volunteer-form";
 
-interface VolunteerProps {
+interface VolunteerProps extends Values {
   volunteer: Values;
+  _id: string
 }
 
 const VolunteerDetailsPage: React.FC<VolunteerProps> = (
@@ -34,13 +35,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const volCollection = db.collection("volunteers");
 
-  const vols = await volCollection.find({}, { _id: 1 }).toArray();
+  const vols = await volCollection.find({}, { _id: 1 } as any).toArray();
 
   client.close();
 
   return {
     fallback: false,
-    paths: vols.map((volunteer: Values) => ({
+    paths: vols.map((volunteer) => ({
       params: {
         volId: volunteer._id.toString(),
       },
@@ -52,7 +53,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const volId = context.params?.volId;
 
   const ObjectID = mongoDB.ObjectId;
-  const id = new ObjectID(volId);
+  const id = new ObjectID(volId as unknown as mongoDB.ObjectId);
 
   const client = await MongoClient.connect(`${process.env.VOLUNTEER_KEY}`);
 

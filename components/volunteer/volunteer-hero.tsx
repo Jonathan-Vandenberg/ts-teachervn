@@ -2,9 +2,10 @@ import { Box } from "@material-ui/core";
 import { Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { NextPage } from "next/types";
+import checkImage from "../../images/checked-svgrepo-com.svg";
 import loveImage from "../../images/favorite-heart-like-svgrepo-com.svg";
 import classes from "./volunteer-hero.module.scss";
-import checkImage from "../../images/checked-svgrepo-com.svg";
 
 const heroVariants = {
   hidden: {
@@ -19,7 +20,7 @@ const heroVariants = {
   },
 };
 
-const VolunteerHero: React.FC = (props) => {
+const VolunteerHero: NextPage = () => {
   return (
     <section className={classes.mainContainer}>
       <motion.div
@@ -29,10 +30,7 @@ const VolunteerHero: React.FC = (props) => {
         animate="visible"
       >
         <Box className={classes.loveImageContainer}>
-          <Image
-            src={loveImage}
-            alt="love-volunteers"
-          />
+          <Image src={loveImage} alt="love-volunteers" />
         </Box>
         <Box className={classes.titleContainer}>
           <Typography className={classes.title}>

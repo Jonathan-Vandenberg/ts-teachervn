@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 import Head from "next/head";
+import { NextPage } from "next/types";
 import * as React from "react";
 import { Values } from "../components/volunteer/volunteer-form";
 import VolunteerHero from "../components/volunteer/volunteer-hero";
@@ -10,7 +11,7 @@ interface Props extends Values {
   _id: string;
 }
 
-const Volunteers: React.FC<Props> = (props) => {
+const Volunteers: NextPage<Props> = (props) => {
   return (
     <>
       <Head>
@@ -40,7 +41,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      volunteers: vols.map((vol: Props) => ({
+      volunteers: vols.map((vol) => ({
         title: vol.title,
         address: vol.address,
         description: vol.description,

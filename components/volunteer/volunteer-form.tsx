@@ -5,10 +5,11 @@ import Grid from "@material-ui/core/Grid";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import { ObjectId } from "bson";
 import { Form, Formik } from "formik";
+import { NextPage } from "next/types";
 import * as React from "react";
 import classes from "./volunteer-form.module.scss";
-import { ObjectId } from "bson";
 
 export interface Props {
   onSubmit: (values: Values) => void;
@@ -25,7 +26,7 @@ export type Values = {
   id: string;
 };
 
-const VolunteerForm: React.FC<Props> = ({ onSubmit }) => {
+const VolunteerForm: NextPage<Props> = ({ onSubmit }) => {
   return (
     <Container maxWidth="sm" className={classes.container}>
       <Typography variant="h6">Create a new volunteer post</Typography>

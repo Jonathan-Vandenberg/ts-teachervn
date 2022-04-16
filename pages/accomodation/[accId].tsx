@@ -8,6 +8,11 @@ import { Values } from "../../components/accomodation/accomodation-form";
 
 interface AccProps {
   accData: Values;
+  _id: number;
+}
+
+type AccId = {
+  accId: mongoDB.ObjectId;
 }
 
 const AccomodationDetailsPage: React.FC<AccProps> = (
@@ -21,7 +26,8 @@ const AccomodationDetailsPage: React.FC<AccProps> = (
       duration={props.accData.duration}
       notes={props.accData.notes}
       price={props.accData.price}
-      image={props.accData.image}
+      image={props.accData.image} 
+      id={""}    
     />
   );
 };
@@ -34,13 +40,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const accsCollection = db.collection("accomodation");
 
-  const accs = await accsCollection.find({}, { _id: 1 }).toArray();
+  const accs = await accsCollection.find({}, { _id: 1 } as any).toArray();
 
   client.close();
 
   return {
     fallback: false,
-    paths: accs.map((acc: Values) => ({
+    paths: accs.map((acc) => ({
       params: {
         accId: acc._id.toString(),
       },
@@ -52,7 +58,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const accId = context.params?.accId;
 
   const ObjectID = mongoDB.ObjectId;
-  const id = new ObjectID(accId);
+  const id = new ObjectID(accId as unknown as mongoDB.ObjectId);
 
   const client = await MongoClient.connect(`${process.env.ACCOMODATION_KEY}`);
 

@@ -1,12 +1,13 @@
 import { Button } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { NextPage } from "next/types";
 import classes from "./volunteer-detail.module.scss";
 import { Values } from "./volunteer-form";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import Image from "next/image";``
 
-const VolunteerDetail: React.FC<Values> = (props) => {
+const VolunteerDetail: NextPage<Values> = (props) => {
   const router = useRouter();
   const session = useSession();
 
@@ -24,7 +25,12 @@ const VolunteerDetail: React.FC<Values> = (props) => {
   return (
     <Box className={classes.container}>
       <Box className={classes.imageContainer}>
-        <Image className={classes.image} src={props.image} alt={props.title} layout='fill'/>
+        <Image
+          className={classes.image}
+          src={props.image}
+          alt={props.title}
+          layout="fill"
+        />
       </Box>
 
       <ul className={classes.content}>

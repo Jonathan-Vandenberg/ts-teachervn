@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { Values } from "./volunteer-form";
 import classes from "./volunteer-single.module.scss";
-import Image from "next/image"
+import Image from "next/image";
 
 export interface Props {
   volunteers: Values;
@@ -33,7 +33,7 @@ const VolunteerSingle: React.FC<Props> = (props) => {
           <Image
             src={props.volunteers.image}
             alt={props.volunteers.title}
-            placeholder='blur'
+            placeholder="blur"
             // width='600 'height='400'
             layout="fill"
           />

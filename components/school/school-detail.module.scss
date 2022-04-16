@@ -16,7 +16,6 @@
     .image {
       width: 100%;
       height: auto;
-      padding: 1rem;
     }
   }
 
@@ -63,6 +62,7 @@
       color: rgb(45, 45, 45);
       list-style: none;
       margin-bottom: 1px solid rgb(120, 119, 119);
+
     }
 
     .pay {
@@ -97,47 +97,49 @@
   }
 }
 
-@media screen and (max-width: 565px) {
+
+@media screen and (max-width: 565px){
   .container {
+  
     .imageContainer {
       width: 100%;
-
+  
       .image {
         width: 100%;
       }
     }
-
+  
     .content {
       .title {
         font-size: 0.8rem;
       }
-
+  
       .addressContainer {
         .address {
           font-size: 0.9rem;
         }
       }
-
+  
       .description {
         font-size: 1.2rem;
       }
-
+  
       .pay {
         font-size: 1.2rem;
         padding: 0;
       }
-
+  
       .notes {
         font-size: 1.2rem;
         padding: 0;
       }
-
+  
       .duration {
         font-size: 1.2rem;
         padding: 0;
       }
     }
-
+  
     .buttonContainer {
       padding: 0;
     }

@@ -91,7 +91,7 @@
   }
 }
 
-@media screen and (max-width: 565px){
+@media screen and (max-width: 565px) {
   .container {
     width: 100%;
     height: 100%;
@@ -102,23 +102,23 @@
     padding: 0;
     margin-top: 4rem;
     text-align: center;
-    
+
     .imageContainer {
       top: 1rem;
       width: 100%;
       height: 200px;
       position: relative;
-  
+
       .image {
         object-fit: contain;
       }
     }
-  
+
     .content {
       text-align: left;
       width: 80%;
       margin-right: 2rem;
-  
+
       .title {
         font-family: "BIZ UDMincho", serif;
         font-size: 0.8rem;
@@ -127,7 +127,7 @@
         list-style: none;
         text-align: center;
       }
-  
+
       .addressContainer {
         width: 100%;
         height: 100%;
@@ -137,12 +137,12 @@
         align-items: center;
         border-bottom: 1px solid rgb(120, 119, 119);
         padding: 0;
-  
+
         .addressBtn {
           list-style: none;
           margin-left: 3rem;
         }
-  
+
         .address {
           font-family: "BIZ UDMincho", serif;
           font-size: 0.8rem;
@@ -153,31 +153,30 @@
           margin-bottom: 2rem;
         }
       }
-  
+
       .description {
         font-size: 1rem;
         color: rgb(45, 45, 45);
         padding: 0;
       }
-  
+
       .pay {
         font-size: 1rem;
         color: rgb(45, 45, 45);
         padding: 0;
       }
-  
+
       .notes {
         font-size: 1rem;
         color: rgb(45, 45, 45);
         padding: 0;
       }
-  
+
       .duration {
         font-size: 1rem;
         color: rgb(45, 45, 45);
         padding: 0;
       }
     }
-
   }
 }

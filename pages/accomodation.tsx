@@ -10,7 +10,6 @@ interface Props extends Values {
   accs: Values[];
 }
 
-
 const Accomodation: React.FC<Props> = (props: Props) => {
   return (
     <>
@@ -23,7 +22,16 @@ const Accomodation: React.FC<Props> = (props: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* {<AccomodationHero />} */}
-      <TitlebarImageList accs={props.accs} />
+      <TitlebarImageList accs={props.accs} acc={{
+        title: "",
+        description: "",
+        price: "",
+        address: "",
+        duration: "",
+        notes: undefined,
+        image: "",
+        id: ""
+      }} title={""} description={""} price={""} address={""} duration={""} image={""} id={""} />
     </>
   );
 };
@@ -41,7 +49,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      accs: accs.map((acc: Props) => ({
+      accs: accs.map((acc) => ({
         title: acc.title,
         address: acc.address,
         description: acc.description,

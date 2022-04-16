@@ -114,6 +114,6 @@ export default function Login({ providers }: Props) {
 Login.getInitialProps = async (context: GetSessionParams | undefined) => {
   return {
     providers: await getProviders(),
-    session: await getSession(context)
+    session: await getSession(context),
   };
 };

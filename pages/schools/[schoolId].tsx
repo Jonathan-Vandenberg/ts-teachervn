@@ -35,7 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const schoolCollection = db.collection("schools");
 
-  const schools = await schoolCollection.find({}, { _id: 1 }).toArray();
+  const schools = await schoolCollection.find({}, { _id: 1 } as any).toArray();
 
   client.close();
 
@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const schoolId = context.params?.schoolId;
 
   const ObjectID = mongoDB.ObjectId;
-  const id = new ObjectID(schoolId);
+  const id = new ObjectID(schoolId as unknown as mongoDB.ObjectId) ;
 
   const client = await MongoClient.connect(`${process.env.SCHOOL_KEY}`);
 

@@ -1,6 +1,7 @@
+import { NextPage } from "next/types";
 import VolunteerForm, { Values } from "../components/volunteer/volunteer-form";
 
-const NewVol = () => {
+const NewVol: NextPage = () => {
   const addVolHandler = async (volData: Values) => {
     const response = await fetch("/api/volunteers-handler", {
       method: "POST",
@@ -10,7 +11,15 @@ const NewVol = () => {
     const data = await response.json();
   };
 
-  return <VolunteerForm onSubmit={addVolHandler} />;
+  return <VolunteerForm onSubmit={addVolHandler} volunteers={{
+    title: "",
+    description: "",
+    address: "",
+    duration: "",
+    notes: "",
+    image: "",
+    id: ""
+  }} />;
 };
 
 export default NewVol;

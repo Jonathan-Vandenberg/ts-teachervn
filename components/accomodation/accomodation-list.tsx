@@ -9,15 +9,23 @@ import AccomodationSingle from "./accomodation-single";
 interface Props extends Values {
   accs: Values[];
   acc: Values;
-  key: string;
 }
 
 export default function TitlebarImageList(props: Props) {
   return (
     <Box className={classes.container}>
       {props.accs?.map((acc: Values) => (
-        <ImageListItem key={props.acc.title}>
-          <AccomodationSingle accs={props.acc} />
+        <ImageListItem key={props.acc.id}>
+          <AccomodationSingle
+            accs={props.acc}
+            title={""}
+            description={""}
+            price={""}
+            address={""}
+            duration={""}
+            image={""}
+            id={""}
+          />
           <ImageListItemBar
             title={acc.title + ", " + acc.address}
             subtitle={acc.description}

@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
 import Head from "next/head";
+import { NextPage } from "next/types";
 import * as React from "react";
 import { Values } from "../components/school/school-form";
-import SchoolHero from "../components/school/school-hero";
 import TitlebarImageList from "../components/school/school-list";
 
 interface Props extends Values {
@@ -10,8 +10,7 @@ interface Props extends Values {
   schools: Values[];
 }
 
-
-const Schools: React.FC<Props> = (props: Props) => {
+const Schools: NextPage<Props> = (props: Props) => {
   return (
     <>
       <Head>
@@ -22,7 +21,6 @@ const Schools: React.FC<Props> = (props: Props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* {<SchoolHero />} */}
       <TitlebarImageList schools={props.schools} />
     </>
   );
@@ -41,7 +39,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      schools: schools.map((school: Props) => ({
+      schools: schools.map((school) => ({
         title: school.title,
         address: school.address,
         description: school.description,
